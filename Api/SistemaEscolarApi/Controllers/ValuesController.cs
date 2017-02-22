@@ -15,7 +15,7 @@ namespace SistemaEscolarApi.Controllers
         [HttpGet, Route("Value/test")]
         public IHttpActionResult test()
         {
-            return Ok("Test");
+            return Ok("Me la pela el Ivan");
         }
     }
 }
