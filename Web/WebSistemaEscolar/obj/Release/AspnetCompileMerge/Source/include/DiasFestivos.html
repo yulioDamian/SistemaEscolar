@@ -1,0 +1,107 @@
+﻿<md-content class="md-padding">
+    <md-tabs md-select="data.selectedIndex" md-dynamic-height md-border-bottom>
+        <md-tab id="tab2">
+            <md-tab-label>Fecha</md-tab-label>
+            <md-tab-body>
+                <div class="row col s12 m12 l12">
+                    <div class="col s3 m3 l3">
+                        <md-input-container class="md-block">
+                            <label>Año</label>
+                            <md-select ng-model="date.year" ng-change="showWarn(date.year)">
+                                <md-option ng-repeat="year in cYear" ng-value="year.id">
+                                    {{year.name}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+                    <div class="col s3 m3 l3">
+                        <md-input-container class="md-block">
+                            <label>Mes</label>
+                            <md-select ng-model="date.month" ng-change="showWarn(date.month)">
+                                <md-option ng-repeat="month in ComboMes" ng-value="month.id">
+                                    {{month.name}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+                    <div class="col s3 m3 l3">
+                        <md-input-container class="md-block">
+                            <label>Día</label>
+                            <md-select ng-model="date.orden" ng-change="selectDay(date.orden)">
+                                <md-option ng-repeat="or in orden" ng-value="or.id">
+                                    {{or.name}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+                    <div class="col s3 m3 l3">
+                        <md-input-container class="md-block">
+                            <label>Día de la semana</label>
+                            <md-select ng-model="date.day" ng-change="showWarn(date.day)">
+                                <md-option ng-repeat="d in days" ng-value="d.id">
+                                    {{d.name}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+                </div>
+                <div class="row col s12 m12 l12">
+                    <div class="col s3 m3 l3">
+                        <md-input-container>
+                            <label>Titulo de fecha</label>
+                            <input ng-model="date.title" ng-change="showWarn(date.title)"/>
+                        </md-input-container>
+                    </div>
+                    <span flex></span>
+                    <div class="col s9 l9 m9">                       
+                        <div class="row page-title">
+                            <md-button class="md-raised md-secondary" ng-click="addAbstractDate()">Agregar</md-button>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </md-tab-body>
+        </md-tab>
+
+    </md-tabs>
+</md-content>
+
+<div layout="column" flex layout_fill ng-cloak  ng-init="loadDate()">
+    <md-toolbar md-scroll-shrink>
+        <div class="md-toolbar-tools">
+            <span>Fechas</span>
+            <span flex></span>
+            <md-button class="md-raised md-primary" aria-label="Guardar" ng-click="saveDataDate()">Guardar</md-button>
+        </div>
+    </md-toolbar>
+    <md-content style="height: 500px;" flex layout-padding>
+        <table class="table table-border table-hover table-condensed">
+            <tr>
+                <td>Nombre</td>
+                <td>fecha</td>
+                <td></td>
+            </tr>
+            <tbody>
+                <tr ng-repeat="date in mDate" ng-if="date.active == 1">
+                   
+                    <td>
+                        <span editable-text="date.name" e-name="name" e-form="rowform" e-required>{{date.name}} </span>
+                    </td>
+                    <td>
+                        <span editable-text="date.date" e-name="date" e-form="rowform" e-required>{{date.date}}</span>
+                    </td>
+                    <td style="white-space:nowrap">
+                       
+                        <div class="buttons" ng-show="!rowform.$visible">
+                           
+                            <md-button class="md-raised md-warn" ng-hide="edit" ng-click="removeDate(date,$index)">Eliminar</md-button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </md-content>
+
+</div>
+<br/><br/>

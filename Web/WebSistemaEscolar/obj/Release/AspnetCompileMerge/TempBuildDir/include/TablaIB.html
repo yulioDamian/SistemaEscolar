@@ -1,0 +1,154 @@
+﻿<div class="row col s12 m12 l12">
+    <div ng-cloak>
+        <md-content>
+            <md-tabs md-dynamic-height md-border-bottom md-selected="selectedIndex">
+
+                <md-tab label="Operaciones" ng-disabled="tab0">
+                    <md-content class="md-padding">
+                        <div layout="column" ng-cloak class="md-inline-form">
+                                <div class="row col s12 m12 l12">
+                                    <div class="row" style="height:100px;"></div>
+                                </div>
+                                <div class="row col s12 m12 l12">
+                                    <div class="col s4 m4 l4">
+                                        <div class="feature">
+                                            <md-icon md-svg-src="../Images/icon/add-3.svg" id="imgAlta" ng-click="SeleccionarAccion($event)" style="width:100px; height:100px;" class="rotate" aria-label="android "></md-icon>
+                                            <div class="feature-content">
+                                                <h4>Agregar</h4>
+                                                <p>Agrega registros a tabla IB.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                       
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <div class="feature">
+                                            <!--<i class="fa fa-eraser"></i>-->
+                                            <md-icon md-svg-src="../Images/icon/trash.svg" id="imgBaja" ng-click="SeleccionarAccion($event)" style="width:100px; height:100px;" class="rotate" aria-label="android "></md-icon>
+                                            <div class="feature-content">
+                                                <h4>Eliminar</h4>
+                                                <p>Descarta alguna registro existente.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row col s12 m12 l12">
+                                </div>
+                        </div>
+                    </md-content>
+                </md-tab>
+
+                <md-tab label="Datos" ng-disabled="tab1">
+                    <md-content class="md-padding">
+                        <div layout="column" ng-cloak class="md-inline-form">
+                            <md-content class="row" layout-padding>
+                                <div flex-xs flex-gt-xs="100" layout="row" ng-hide="cardDelete">
+                                    <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+                                        <md-card-title>
+                                            <md-card-title-text>
+                                                <span class="md-headline">Se eliminarán todos los registros <br/> del mes de</span>
+                                                <md-input-container>
+                                                    <label>Selecione mes para eliminar datos</label>
+                                                    <md-select ng-model="Registro.month" ng-change="setFullYear()">
+                                                        <md-option ng-repeat="m in months" ng-value="m.name" ng-disabled="m.valid">
+                                                            {{m.name}}
+                                                        </md-option>
+                                                    </md-select>
+                                                </md-input-container>
+                                                <span class="md-subhead"></span>
+
+                                            </md-card-title-text>
+                                        </md-card-title>
+                                        <md-card-actions layout="row" layout-align="end center">
+                                            <md-button ng-click="delete()">Eliminar</md-button>
+                                        </md-card-actions>
+                                    </md-card>
+                                </div>
+
+                               
+                            </md-content>
+                        </div>
+                    </md-content>
+                </md-tab>
+
+                <md-tab label="Carga Registros" ng-disabled="tab2">
+                    <md-content class="md-padding">
+                        <div layout="column" ng-cloak class="md-inline-form">
+                            <md-content class="row" layout-padding>
+                                <div class="row col s12 m12 l12">
+                                    <div class="col s6 m6 l6">
+                                        <div class="file-field input-field">
+                                            <div class="btn">
+                                                <span>Archivo</span>
+                                                <js-xlsx onread="read" onerror="error" />
+                                            </div><div class="file-path-wrapper">
+                                                <input class="file-path validate" type="text" ng-model="fileName" accept=".xlsx,.xls" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col s6 m6 l6">
+                                        <md-input-container>
+                                            <label>Selecione mes de carga</label>
+                                            <md-select ng-model="Registro.month" ng-change="setFullYear()">
+                                                <md-option ng-repeat="m in months" ng-value="m.value" ng-disabled="m.valid">
+                                                    {{m.name}}
+                                                </md-option>
+                                            </md-select>
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <div class="row col s12 m12 l12">
+                                    <div class="col s4 m4 l4">
+                                      
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <md-button class="md-raised" ng-hide="elmnInvisibleCargar" ng-disabled="btnValidar" ng-click="Validar()">Validar</md-button>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <md-button class="md-raised" ng-hide="elmnInvisibleCargar" ng-disabled="btnCargar" ng-click="Cargar()">Confirmar</md-button>
+                                    </div>
+                                </div>
+                                <div class="row col s12 m12 l12" style="overflow-y:scroll; height:400px;">
+                                    <table id="tblIB">
+                                        <thead>
+                                            <tr>
+                                                <th>RPU</th>
+                                                <th>Demanda Máxima</th>
+                                                <th>Demanda Limite</th>
+                                                <th>Prioridad</th>
+                                                <th>Comentarios</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody ng-repeat="r in Registros" style="{{r.color}}">
+                                            <tr>
+                                                <td>{{r.soc_id}}</td>
+                                                <td>{{r.demand_max}}</td>
+                                                <td>{{r.demand_limit}}</td>
+                                                <td>{{r.priority}}</td>
+                                                <td>{{r.comment}}</td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row col s12 m12 l12">
+                                    <div class="col s4 m4 l4">
+                                        <md-button class="md-raised" ng-hide="elmnInvisibleCargar" ng-click="cancel()">Terminar</md-button>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <md-button class="md-raised" ng-hide="elmnInvisibleCargar" ng-click="Reiniciar()">Cancelar</md-button>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <p>{{finalMessage}}</p>
+                                    </div>
+                                </div>
+                            </md-content>
+                        </div>
+                    </md-content>
+                </md-tab>
+
+            </md-tabs>
+        </md-content>
+    </div>
+</div>

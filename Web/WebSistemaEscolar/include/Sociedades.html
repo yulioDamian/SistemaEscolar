@@ -1,0 +1,379 @@
+﻿<div class="row col s12 m12 l12">
+    <div ng-cloak>
+        <md-content>
+            <md-tabs md-dynamic-height md-border-bottom md-selected="selectedIndex">
+
+                <md-tab label="Operaciones" ng-disabled="Tab0Socio">
+                    <md-content class="md-padding">
+                        <div layout="column" ng-cloak class="md-inline-form">
+                            <md-content class="row" style="width:100%;" layout-padding>
+                                <div class="row col s12 m12 l12">
+                                    <div class="row" style="height:100px;"></div>
+                                </div>
+                                <div class="row col s12 m12 l12">
+                                    <div class="col s4 m4 l4">
+                                        <div class="feature">
+                                            <md-icon md-svg-src="../Images/icon/add-3.svg" id="imgAlta" ng-click="SeleccionarAccion($event)" style="width:100px; height:100px;" class="rotate" aria-label="android "></md-icon>
+                                            <div class="feature-content">
+                                                <h4>Agregar</h4>
+                                                <p>Crea una nueva Sociedad.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <div class="feature">
+                                            <md-icon md-svg-src="../Images/icon/edit-1.svg" id="imgMod" ng-click="SeleccionarAccion($event)" style="width:100px; height:100px;" class="rotate" aria-label="android "></md-icon>
+                                            <div class="feature-content">
+                                                <h4>Editar</h4>
+                                                <p>Modifica alguna sociedad existente.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <div class="feature">
+                                            <!--<i class="fa fa-eraser"></i>-->
+                                            <md-icon md-svg-src="../Images/icon/trash.svg" id="imgBaja" ng-click="SeleccionarAccion($event)" style="width:100px; height:100px;" class="rotate" aria-label="android "></md-icon>
+                                            <div class="feature-content">
+                                                <h4>Eliminar</h4>
+                                                <p>Da de baja la sociedad deseada.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row col s12 m12 l12">
+                                </div>
+                            </md-content>
+                        </div>
+                    </md-content>
+                </md-tab>
+
+                <md-tab label="Datos" ng-disabled="Tab1Socio">
+                    <md-content class="row md-padding">
+                        <div layout="column" ng-cloak class="md-inline-form" style="height:90%;">
+                                <div class="row col s12 m12 l12"  ng-hide="hideBlock">
+                                    <div style="height:110px;" class="col s4 m4 l4">
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                            <md-input-container ng-hide="vsSelSociedad" class="md-block">
+                                                <label>Sociedad</label>
+                                                <md-select ng-model="Sociedad.id" ng-change="CambioSociedad()">
+                                                    <md-option ng-repeat="sociedad in ComboSociedad" ng-if="sociedad.active == 1" value="{{sociedad.dataId}}">
+                                                        {{sociedad.name}}
+                                                    </md-option>
+                                                </md-select>
+                                            </md-input-container>
+                                        <md-input-container ng-hide="mUpdate" class="md-block">
+                                            <label>Sociedad</label>
+                                            <md-select ng-model="Sociedad.id" ng-change="CambioSociedad()">
+                                                <md-option ng-repeat="sociedad in ComboSociedad" value="{{sociedad.dataId}}">
+                                                    {{sociedad.name}}
+                                                </md-option>
+                                            </md-select>
+                                        </md-input-container>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        
+                                    </div>
+                                </div>
+                                <div class="row col s12 m12 l12">
+                                    <div style="height:110px;" class="col s4 m4 l4">
+                                        <md-input-container>
+                                            <label>Nombre</label>
+                                            <input ng-model="Sociedad.name" ng-disabled="elemInactivo" ng-change="showWarn(Sociedad.name)"/>
+                                        </md-input-container>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <md-input-container>
+                                            <label>Razón Social</label>
+                                            <input ng-model="Sociedad.businessname" ng-change="showWarn(Sociedad.businessname)" ng-disabled="elemInactivo" />
+                                        </md-input-container>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <form name="ClaveForm">
+                                            <md-input-container>
+                                                <label>Clave Sistem</label>
+                                                <input ng-model="Sociedad.NameKey" name="nameKey" ng-change="showWarn(Sociedad.NameKey)" ng-disabled="elemInactivo" 
+                                                       required md-maxlength="5"/>
+                                                <div ng-messages="ClaveForm.nameKey.$error" role="alert">
+                                                    <div ng-message="md-maxlength" class="my-message">
+                                                        Clave Sistem debe ser menor de 5 caracteres
+                                                    </div>
+                                                </div>
+                                            </md-input-container>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="row col s12 m12 l12">
+                                    <div class="col s4 m4 l4">
+                                        <form name="SociedadForm">
+                                            <md-input-container>
+                                                <label>RFC</label>
+                                                <input ng-model="Sociedad.rfc" ng-disabled="elemInactivo" ng-change="showWarn(Sociedad.rfc)" name="rfc" placeholder="CALJ9001014J9"
+                                                       required md-no-asterisk md-maxlength="13" capitalize/>
+                                                <div ng-messages="SociedadForm.rfc.$error" role="alert" multiple>
+                                                    <div ng-message="required" class="my-message">RFC requerido</div>
+                                                    <div ng-message="md-maxlength" class="my-message">
+                                                        RFC debe ser de 13 caracteres
+                                                    </div>
+                                                </div>
+                                            </md-input-container>
+                                        </form>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <md-input-container>
+                                            <label>Calle</label>
+                                            <input ng-model="Sociedad.street" ng-change="showWarn(Sociedad.street)" ng-disabled="elemInactivo" />
+                                        </md-input-container>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <md-input-container>
+                                            <label>No. Interior</label>
+                                            <input ng-model="Sociedad.noint" ng-change="showWarn(Sociedad.noint)" ng-disabled="elemInactivo" />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                
+                        </div>
+                        <div class="row col s12 m12 l12">
+                            <div style="height:110px;" class="col s4 m4 l4">
+                                <div>
+                                    <md-button class="md-raised" ng-click="Regresar()">Atrás</md-button>
+                                </div>
+                            </div>
+                            <div class="col s4 m4 l4">
+                                <div><br /></div>
+                            </div>
+                            <div class="col s4 m4 l4">
+                                <div class="row page-title">
+                                    <md-button class="md-raised" ng-click="Siguiente()">Siguiente</md-button>
+                                </div>
+                            </div>
+                        </div>
+                    </md-content>
+                </md-tab>
+
+                <md-tab label="Datos del Domicilio" ng-disabled="Tab2Socio">
+                    <md-content class="md-padding">
+                        <div layout="column" ng-cloak class="md-inline-form">
+                            <md-content class="row" layout-padding>
+                                <div class="row col s12 m12 l12">
+                                    <div style="height:110px;" class="col s4 m4 l4">
+                                        <md-input-container>
+                                            <label>No. Exterior</label>
+                                            <input ng-model="Sociedad.noext" ng-change="showWarn(Sociedad.noext)" ng-disabled="elemInactivo" />
+                                        </md-input-container>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        
+                                        <md-input-container class="md-block">
+                                            <label>Estado</label>
+                                            <md-select ng-change="change(Sociedad.stateId)" ng-disabled="elemInactivo" ng-model="Sociedad.stateId">
+                                                <md-option ng-repeat="estado in ComboEstado" value="{{estado.dataId}}">
+                                                    {{estado.name}}
+                                                </md-option>
+                                            </md-select>
+                                        </md-input-container>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <md-input-container class="md-block">
+                                            <label>Municipio</label>
+                                            <md-select ng-change="CargarCPs(Sociedad.municipalityID)" ng-disabled="elemInactivo" ng-model="Sociedad.municipalityID">
+                                                <md-option ng-repeat="municipio in Municipios | orderBy:'name'" value="{{municipio.atributeId}}">
+                                                    {{municipio.name}}
+                                                </md-option>
+                                            </md-select>
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <div class="row col s12 m12 l12">
+                                    <div class="col s4 m4 l4">
+                                        <md-input-container class="md-block">
+                                            <label>Código Postal</label>
+                                            <md-select ng-model="Sociedad.zipcodeId" ng-disabled="elemInactivo" ng-change="colonySelect(Sociedad.zipcodeId)">
+                                                <md-option ng-repeat="cp in CodigosPostales" value="{{cp.name}}">
+                                                    {{cp.name}}
+                                                </md-option>
+                                            </md-select>
+                                        </md-input-container>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <md-input-container class="md-block">
+                                            <label>Colonia</label>
+                                            <md-select ng-model="Sociedad.colony" ng-disabled="disableColony" ng-change="showWarn(Sociedad.colony)">
+                                                <md-option ng-repeat="col in colony" value="{{col.name}}">
+                                                    {{col.name}}
+                                                </md-option>
+                                            </md-select>
+                                        </md-input-container>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <md-button class="md-raised" ng-hide="btnCP" ng-click="AgregarCP()">Agregar Código Postal</md-button>
+                                    </div>
+                                </div>
+                                <div class="row col s12 m12 l12">
+                                    <div style="height:110px;" class="col s4 m4 l4">
+                                        <md-input-container>
+                                            <label>Teléfono</label>
+                                            <input ng-model="Sociedad.phone" ng-change="showWarn(Sociedad.phone)" ng-disabled="elemInactivo" />
+                                        </md-input-container>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <md-input-container>
+                                            <label>E-mail</label>
+                                            <input ng-model="Sociedad.email" ng-change="showWarn(Sociedad.email)" type="email" ng-disabled="elemInactivo" />
+                                        </md-input-container>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <md-input-container class="md-block">
+                                            <label>Forma Pago</label>
+                                            <md-select ng-model="Sociedad.pay" ng-change="CambioformaPago(Sociedad.pay)" ng-disabled="elemInactivo">
+                                                <md-option ng-repeat="fpago in ComboTipoPago" value="{{fpago.dataId}}">
+                                                    {{fpago.name}}
+                                                </md-option>
+                                            </md-select>
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <div class="row col s12 m12 l12">
+                                    <div style="height:110px;" class="col s4 m4 l4">
+                                        <div>
+                                            <md-button class="md-raised" ng-click="Regresar()">Atrás</md-button>
+                                        </div>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <div><br /></div>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <div class="row page-title">
+                                            <md-button class="md-raised" ng-click="Siguiente()">Siguiente</md-button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </md-content>
+                        </div>
+                    </md-content>
+                </md-tab>
+
+                <md-tab label="Datos Cobro" ng-disabled="Tab3Socio">
+                    <md-content class="md-padding">
+                        <div layout="column" ng-cloak class="md-inline-form">
+                            <md-content class="row" layout-padding>
+                                <div class="row col s12 m12 l12">
+                                    <div style="height:110px;" class="col s4 m4 l4">
+                                        <md-input-container class="md-block">
+                                            <label>Banco</label>
+                                            <md-select ng-model="Sociedad.bank" ng-change="selectBank(Sociedad.bank)" ng-disabled="elemPagoBanco">
+                                                <md-option ng-repeat="banco in ComboBanco" value="{{banco.dataId}}">
+                                                    {{banco.name}}
+                                                </md-option>
+                                            </md-select>
+                                        </md-input-container>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <md-input-container class="md-block">
+                                            <label>Tipo cuenta</label>
+                                            <md-select ng-model="Sociedad.tcuenta" ng-change="AccountType(Sociedad.tcuenta)" ng-disabled="dAccountType">
+                                                <md-option ng-repeat="cuenta in ComboTipoCuenta" value="{{cuenta.dataId}}">
+                                                    {{cuenta.name}}
+                                                </md-option>
+                                            </md-select>
+                                        </md-input-container>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <md-input-container ng-hide="hideNumberTD">
+                                            <label>{{cardLabel}}</label>
+                                            <input ng-model="Sociedad.cardNumber" ng-disabled="eNumberTD" ng-change="showWarn(Sociedad.cardNumber)"/>
+                                        </md-input-container>
+                                        <form name="interbankForm">
+                                            <md-input-container ng-hide="vsinpClabe">
+                                                <label>Clabe interbancaria</label>
+                                                <input ng-model="Sociedad.interbank" name="interbank" ng-change="showWarn(Sociedad.interbank)" ng-disabled="elemPagoInactivo" 
+                                                       placeholder="154236254879512548" required ng-pattern="/^[0-9]{18}$/" md-maxlength="18"/>
+                                                <div ng-messages="interbankForm.interbank.$error" role="alert" multiple>
+                                                    <div ng-message="required" class="my-message">Deves de poner una clabe interbancaria.</div>
+                                                    <div ng-message="pattern" class="my-message">
+                                                        Asegurate de ingresar 18 digitos, no acepta caracteres.
+                                                    </div>
+                                                    <div ng-message="md-maxlength" class="my-message">
+                                                        clabe debe ser de 18 digitos
+                                                    </div>
+                                                </div>
+                                            </md-input-container>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="row col s12 m12 l12">
+                                    <div style="height:110px;" class="col s4 m4 l4">
+                                        <md-input-container>
+                                            <label>Descuento</label>
+                                            <input ng-model="Sociedad.discount" ng-change="showWarn(Sociedad.discount)" ng-disabled="elemInactivo" />
+                                        </md-input-container>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <md-input-container class="md-block">
+                                            <label>Tarifa CFE</label>
+                                            <md-select ng-model="Sociedad.tariff" ng-change="showWarn(Sociedad.tariff)" ng-disabled="elemInactivo">
+                                                <md-option ng-repeat="tarifa in ComboTarifaP" value="{{tarifa.dataId}}">
+                                                    {{tarifa.name}}
+                                                </md-option>
+                                            </md-select>
+                                        </md-input-container>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <md-input-container class="md-block">
+                                            <label>Tarifa Horaria</label>
+                                            <md-select ng-model="Sociedad.horarytariff" ng-change="showWarn(Sociedad.horarytariff)" ng-disabled="elemInactivo">
+                                                <md-option ng-repeat="tarifa in ComboTarifaHoraria" value="{{tarifa.dataId}}">
+                                                    {{tarifa.name}}
+                                                </md-option>
+                                            </md-select>
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <div class="row col s12 m12 l12">
+                                    <div style="height:110px;" class="col s4 m4 l4" ng-hide="statusAdd">
+                                        <md-input-container class="md-block">
+                                            <label>Estatus</label>
+                                            <md-select ng-model="Sociedad.active" ng-change="showWarn(Sociedad.active)" ng-disabled="elemInactivo">
+                                                <md-option ng-repeat="est in ComboEstatus" value="{{est.id}}">
+                                                    {{est.name}}
+                                                </md-option>
+                                            </md-select>
+                                        </md-input-container>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <md-input-container>
+                                            <label>Límite Porteo</label>
+                                            <input ng-model="Sociedad.limit" ng-change="showWarn(Sociedad.limit)" ng-disabled="elemInactivo" />
+                                        </md-input-container>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <br />
+                                    </div>
+                                </div>
+                              
+                                <div class="row col s12 m12 l12">
+                                    <div style="height:110px;" class="col s4 m4 l4">
+                                        <div>
+                                            <md-button class="md-raised" ng-click="Regresar()">Atrás</md-button>
+                                        </div>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <div><br /></div>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <div class="row page-title">
+                                            <md-button class="md-raised" ng-click="confirmar($event)">{{boton}}</md-button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </md-content>
+                        </div>
+                    </md-content>
+                </md-tab>
+
+            </md-tabs>
+
+        </md-content>
+    </div>
+</div>

@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Este archivo es utilizado por el proceso de paquete/publicación de nuestro proyecto Web. Puede personalizar el comportamiento de este proceso
+editando este archivo MSBuild. Para conocer más acerca de esto, visite http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>ftp://172.16.131.109/Porteo/WEB</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>07/13/2016 10:37:03</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.compiled">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/AspNet.ScriptManager.jQuery.dll">
+      <publishTime>07/13/2016 10:37:07</publishTime>
+    </File>
+    <File Include="bin/AspNet.ScriptManager.jQuery.UI.Combined.dll">
+      <publishTime>07/13/2016 10:37:12</publishTime>
+    </File>
+    <File Include="bin/DotNetOpenAuth.AspNet.dll">
+      <publishTime>07/13/2016 10:37:06</publishTime>
+    </File>
+    <File Include="bin/DotNetOpenAuth.Core.dll">
+      <publishTime>07/13/2016 10:37:06</publishTime>
+    </File>
+    <File Include="bin/DotNetOpenAuth.OAuth.Consumer.dll">
+      <publishTime>07/13/2016 10:37:09</publishTime>
+    </File>
+    <File Include="bin/DotNetOpenAuth.OAuth.dll">
+      <publishTime>07/13/2016 10:37:09</publishTime>
+    </File>
+    <File Include="bin/DotNetOpenAuth.OpenId.dll">
+      <publishTime>07/13/2016 10:37:08</publishTime>
+    </File>
+    <File Include="bin/DotNetOpenAuth.OpenId.RelyingParty.dll">
+      <publishTime>07/13/2016 10:37:09</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>07/13/2016 10:37:02</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>07/13/2016 10:37:03</publishTime>
+    </File>
+    <File Include="bin/es/EntityFramework.resources.dll">
+      <publishTime>07/13/2016 10:37:03</publishTime>
+    </File>
+    <File Include="bin/es/EntityFramework.SqlServer.resources.dll">
+      <publishTime>07/13/2016 10:37:03</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.AspNet.FriendlyUrls.resources.dll">
+      <publishTime>07/13/2016 10:37:03</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.AspNet.Membership.OpenAuth.resources.dll">
+      <publishTime>07/13/2016 10:37:06</publishTime>
+    </File>
+    <File Include="bin/es/System.Web.Optimization.resources.dll">
+      <publishTime>07/13/2016 10:37:12</publishTime>
+    </File>
+    <File Include="bin/IUSASOL.dll">
+      <publishTime>07/21/2016 09:07:05</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
+      <publishTime>07/13/2016 10:37:04</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Membership.OpenAuth.dll">
+      <publishTime>07/13/2016 10:37:06</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Web.Optimization.WebForms.dll">
+      <publishTime>07/13/2016 10:37:08</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ScriptManager.MSAjax.dll">
+      <publishTime>07/13/2016 10:37:10</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ScriptManager.WebForms.dll">
+      <publishTime>07/13/2016 10:37:10</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>07/13/2016 10:37:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>07/13/2016 10:37:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.Providers.dll">
+      <publishTime>07/13/2016 10:37:12</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>07/13/2016 10:37:03</publishTime>
+    </File>
+    <File Include="Content/angular-material.min.css">
+      <publishTime>07/13/2016 10:37:21</publishTime>
+    </File>
+    <File Include="Content/font_awesome.min.css">
+      <publishTime>07/13/2016 10:37:21</publishTime>
+    </File>
+    <File Include="Content/materialize.min.css">
+      <publishTime>07/13/2016 10:37:21</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>07/13/2016 10:37:21</publishTime>
+    </File>
+    <File Include="Content/Style.css">
+      <publishTime>07/13/2016 10:37:21</publishTime>
+    </File>
+    <File Include="Font/fontawesome-webfont-1.eot">
+      <publishTime>07/13/2016 10:37:13</publishTime>
+    </File>
+    <File Include="Font/fontawesome-webfont-1.hxd">
+      <publishTime>07/13/2016 10:37:13</publishTime>
+    </File>
+    <File Include="Font/fontawesome-webfont.eot">
+      <publishTime>07/13/2016 10:37:13</publishTime>
+    </File>
+    <File Include="Font/fontawesome-webfont.hxd">
+      <publishTime>07/13/2016 10:37:13</publishTime>
+    </File>
+    <File Include="Font/fontawesome-webfont.svg">
+      <publishTime>07/13/2016 10:37:13</publishTime>
+    </File>
+    <File Include="Font/fontawesome-webfont.woff">
+      <publishTime>07/13/2016 10:37:13</publishTime>
+    </File>
+    <File Include="fonts/roboto/Roboto-Light.ttf">
+      <publishTime>07/21/2016 09:06:38</publishTime>
+    </File>
+    <File Include="fonts/roboto/Roboto-Light.woff">
+      <publishTime>07/21/2016 09:06:38</publishTime>
+    </File>
+    <File Include="fonts/roboto/Roboto-Light.woff2">
+      <publishTime>07/21/2016 09:06:38</publishTime>
+    </File>
+    <File Include="fonts/roboto/Roboto-Medium.ttf">
+      <publishTime>07/21/2016 09:06:28</publishTime>
+    </File>
+    <File Include="fonts/roboto/Roboto-Medium.woff">
+      <publishTime>07/21/2016 09:06:28</publishTime>
+    </File>
+    <File Include="fonts/roboto/Roboto-Medium.woff2">
+      <publishTime>07/21/2016 09:06:28</publishTime>
+    </File>
+    <File Include="fonts/roboto/Roboto-Regular.ttf">
+      <publishTime>07/21/2016 09:06:09</publishTime>
+    </File>
+    <File Include="fonts/roboto/Roboto-Regular.woff">
+      <publishTime>07/21/2016 09:06:09</publishTime>
+    </File>
+    <File Include="fonts/roboto/Roboto-Regular.woff2">
+      <publishTime>07/21/2016 09:06:09</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>07/13/2016 10:37:12</publishTime>
+    </File>
+    <File Include="Images/back.jpg">
+      <publishTime>07/13/2016 10:37:12</publishTime>
+    </File>
+    <File Include="Images/icon/add-3.svg">
+      <publishTime>07/13/2016 10:37:13</publishTime>
+    </File>
+    <File Include="Images/icon/close.svg">
+      <publishTime>07/13/2016 10:37:13</publishTime>
+    </File>
+    <File Include="Images/icon/edit-1.svg">
+      <publishTime>07/13/2016 10:37:13</publishTime>
+    </File>
+    <File Include="Images/icon/trash.svg">
+      <publishTime>07/13/2016 10:37:12</publishTime>
+    </File>
+    <File Include="Images/iusaSolar.jpg">
+      <publishTime>07/13/2016 10:37:12</publishTime>
+    </File>
+    <File Include="Images/iusasolLogo.png">
+      <publishTime>07/13/2016 10:37:12</publishTime>
+    </File>
+    <File Include="include/Bancos.html">
+      <publishTime>07/13/2016 10:37:21</publishTime>
+    </File>
+    <File Include="include/CodigoPostal.html">
+      <publishTime>07/13/2016 10:37:21</publishTime>
+    </File>
+    <File Include="include/Contract.html">
+      <publishTime>07/13/2016 10:37:21</publishTime>
+    </File>
+    <File Include="include/DetalleTarifaCFE.html">
+      <publishTime>07/13/2016 10:37:21</publishTime>
+    </File>
+    <File Include="include/Graficas.html">
+      <publishTime>07/13/2016 10:37:21</publishTime>
+    </File>
+    <File Include="include/inicio.html">
+      <publishTime>07/13/2016 10:37:21</publishTime>
+    </File>
+    <File Include="include/perfilUsuarios.html">
+      <publishTime>07/13/2016 10:37:21</publishTime>
+    </File>
+    <File Include="include/Sociedades.html">
+      <publishTime>07/13/2016 10:37:21</publishTime>
+    </File>
+    <File Include="include/Socios.html">
+      <publishTime>07/13/2016 10:37:21</publishTime>
+    </File>
+    <File Include="include/Usuarios.html">
+      <publishTime>07/13/2016 10:37:21</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>07/13/2016 10:37:21</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Scripts/admin.js">
+      <publishTime>07/20/2016 18:29:56</publishTime>
+    </File>
+    <File Include="Scripts/aes-ctr.js">
+      <publishTime>07/13/2016 10:37:22</publishTime>
+    </File>
+    <File Include="Scripts/aes.js">
+      <publishTime>07/13/2016 10:37:22</publishTime>
+    </File>
+    <File Include="Scripts/angular-animate.min.js">
+      <publishTime>07/13/2016 10:37:21</publishTime>
+    </File>
+    <File Include="Scripts/angular-aria.min.js">
+      <publishTime>07/13/2016 10:37:21</publishTime>
+    </File>
+    <File Include="Scripts/angular-material.min.js">
+      <publishTime>07/13/2016 10:37:22</publishTime>
+    </File>
+    <File Include="Scripts/angular-messages.min.js">
+      <publishTime>07/13/2016 10:37:21</publishTime>
+    </File>
+    <File Include="Scripts/angular-route.min.js">
+      <publishTime>07/13/2016 10:37:22</publishTime>
+    </File>
+    <File Include="Scripts/angular.min.js">
+      <publishTime>07/13/2016 10:37:22</publishTime>
+    </File>
+    <File Include="Scripts/backStyle.js">
+      <publishTime>07/13/2016 10:37:21</publishTime>
+    </File>
+    <File Include="Scripts/init.js">
+      <publishTime>07/13/2016 10:37:22</publishTime>
+    </File>
+    <File Include="Scripts/jquery-2.1.1.min.js">
+      <publishTime>07/13/2016 10:37:21</publishTime>
+    </File>
+    <File Include="Scripts/jquery-2.1.4.js">
+      <publishTime>07/13/2016 10:37:21</publishTime>
+    </File>
+    <File Include="Scripts/jquery.backstretch.min.js">
+      <publishTime>07/13/2016 10:37:21</publishTime>
+    </File>
+    <File Include="Scripts/login.js">
+      <publishTime>07/14/2016 13:55:19</publishTime>
+    </File>
+    <File Include="Scripts/materialize.min.js">
+      <publishTime>07/13/2016 10:37:21</publishTime>
+    </File>
+    <File Include="Scripts/testG.js">
+      <publishTime>07/13/2016 10:37:21</publishTime>
+    </File>
+    <File Include="Scripts/zingchart-angularjs.js">
+      <publishTime>07/13/2016 10:37:21</publishTime>
+    </File>
+    <File Include="Scripts/zingchart.min.js">
+      <publishTime>07/13/2016 10:37:22</publishTime>
+    </File>
+    <File Include="Views/admin.aspx">
+      <publishTime>07/13/2016 10:37:12</publishTime>
+    </File>
+    <File Include="Views/inicio.aspx">
+      <publishTime>07/13/2016 10:37:12</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>07/13/2016 13:29:55</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

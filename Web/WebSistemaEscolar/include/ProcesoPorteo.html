@@ -1,0 +1,273 @@
+﻿<div class="row col s12 m12 12">
+    <md-toolbar class="md-hue-2">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>Paneles de generación diaria</span>
+            </h2>
+            <span flex></span>
+            <div style="padding-top:55px;">
+                <mdp-date-picker mdp-open-on-click required ng-model="currentDate" ng-change="changeDate(currentDate)"
+                                 mdp-max-date="maxDate">
+                    <label style="color:white;">Fecha</label>
+                </mdp-date-picker>
+            </div>
+            <!-- <md-button class="md-icon-button" aria-label="Refresh" ng-click="reload()">
+                 <md-icon md-svg-icon="../Images/icon/ic_reload.svg" ></md-icon>
+             </md-button> -->
+        </div>
+    </md-toolbar>
+    <div class="col s6 m4 l4" ng-repeat="panel in panels">
+        <md-card style="min-height:203px;">
+            <md-card-title ng-click="selectTabs($index)">
+                <md-card-title-text>
+                    <span class="md-headline">{{panel.name}}</span>
+                    <span class="md-subhead">Total generado: {{panel.generated}} KWh</span>
+                </md-card-title-text>
+                <md-card-title-media>
+                    <div class="md-media-sm card-media">
+                        <md-icon class="ic-panel" md-svg-icon="../Images/icon/ic_solarpanel.svg"></md-icon>
+                    </div>
+                </md-card-title-media>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center" ng-if="panel.idMetter != 0">
+                <md-button ng-click="downloadInfo(panel.idMetter)">Descargar Detalle</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+</div>
+
+
+<div layout="column" ng-cloak>
+    <md-content class="md-padding">
+        <div layout="row" layout-sm="column" layout-align="space-around">
+            <md-progress-circular md-mode="indeterminate" ng-show="isProgress" md-diameter="70"></md-progress-circular>
+        </div>
+        <md-tabs md-selected="selectedIndex1" md-autoselect style="min-height:530px;height:530px;">
+            <md-tab ng-repeat="panel in panels"
+                    label="{{panel.name}}"
+                    ng-click="showGraphic(panel)">
+                <div class="demo-tab tab{{$index%4}}" id="mainContainer" style="padding: 25px; text-align: center;">
+
+                    <div class="row col s12 m12 l12" id="{{panel.containerName}}" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                    <br />
+
+                </div>
+            </md-tab>
+        </md-tabs>
+    </md-content>
+</div>
+
+
+<div class="row col s12 m12 12">
+    <md-toolbar class="md-hue-2">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>Consumo</span>
+            </h2>
+            <span flex></span>
+        </div>
+    </md-toolbar>
+</div>
+
+<div layout="column" ng-cloak>
+    <md-content class="md-padding">
+        <div layout="row" layout-sm="column" layout-align="space-around">
+            <md-progress-circular md-mode="indeterminate" ng-show="isProgress1" md-diameter="70"></md-progress-circular>
+        </div>
+<md-tabs md-selected="selectedIndex2" md-autoselect style="min-height:530px;height:530px;">
+    <md-tab ng-repeat="panel in panelConsumo"
+            label="{{panel.name}}"
+            ng-click="showGraphic(panel)">
+        <div class="demo-tab tab{{$index%4}}" id="mainContainer" style="padding: 25px; text-align: center;">
+            <div class="row col s12 m12 l12" id="{{panel.containerName}}" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+            <br />
+
+        </div>
+    </md-tab>
+</md-tabs>
+    </md-content>
+</div>
+
+
+
+<div class="row col s12 m12 12">
+    <md-toolbar class="md-hue-2">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>Neteo</span>
+            </h2>
+            <span flex></span>
+        </div>
+    </md-toolbar>
+</div>
+
+<div layout="column" ng-cloak>
+    <md-content class="md-padding">
+        <div layout="row" layout-sm="column" layout-align="space-around">
+            <md-progress-circular md-mode="indeterminate" ng-show="isProgress2" md-diameter="70"></md-progress-circular>
+        </div>
+
+        <md-tabs md-selected="selectedIndex3" md-autoselect style="min-height:530px;height:530px;">
+            <md-tab ng-repeat="panel in panelNeteo"
+                    label="{{panel.name}}"
+                    ng-click="showGraphic(panel)">
+                <div class="demo-tab tab{{$index%4}}" id="mainContainer" style="padding: 25px; text-align: center;">
+
+                    <div class="row col s12 m12 l12" id="{{panel.containerName}}" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                    <br />
+
+                </div>
+            </md-tab>
+        </md-tabs>
+    </md-content>
+</div>
+
+
+
+<div class="row col s12 m12 12">
+    <md-toolbar class="md-hue-2">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>PORTEO</span>
+            </h2>
+            <span flex></span>
+        </div>
+    </md-toolbar>
+</div>
+
+<div layout="column" ng-cloak>
+    <md-content class="md-padding">
+        <div layout="row" layout-sm="column" layout-align="space-around">
+            <md-progress-circular md-mode="indeterminate" ng-show="isProgress3" md-diameter="70"></md-progress-circular>
+        </div>
+        <md-tabs md-selected="selectedIndex4" md-autoselect style="min-height:530px;height:530px;">
+            <md-tab ng-repeat="panel in panelPorteo"
+                    label="{{panel.name}}"
+                    ng-click="ConsuptionGraphic(panel)">
+                <div class="demo-tab tab{{$index%4}}" id="mainContainer" style="padding: 25px; text-align: center;">
+                    <div class="row col s12 m12 l12" id="{{panel.containerName}}" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                    <br />
+
+                </div>
+            </md-tab>
+        </md-tabs>
+    </md-content>
+</div>
+
+<div layout="column" ng-cloak>
+    <md-content class="md-padding">
+        <div layout="row" layout-sm="column" layout-align="space-around">
+            <md-progress-circular md-mode="indeterminate" ng-show="isProgress4" md-diameter="70"></md-progress-circular>
+        </div>
+        <md-tabs md-selected="selectedIndex5" md-autoselect style="min-height:530px;height:530px;">
+            <md-tab ng-repeat="panel in panelSobrante"
+                    label="{{panel.name}}"
+                    ng-click="ConsuptionGraphic(panel)">
+                <div class="demo-tab tab{{$index%4}}" id="mainContainer" style="padding: 25px; text-align: center;">
+                    <div class="row col s12 m12 l12" id="{{panel.containerName}}" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                    <br />
+
+                </div>
+            </md-tab>
+        </md-tabs>
+    </md-content>
+</div>
+
+
+<div class="row col s12 m12 12">
+    <md-toolbar class="md-hue-2">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>Balance</span>
+            </h2>
+            <span flex></span>
+        </div>
+    </md-toolbar>
+
+    <p>Seleccione archivo a descargar</p>
+    <div class="row col s12 m12 l12 ">
+        <div class="col s3 m3 l3">
+
+            <md-radio-group ng-model="data.group1">
+                <md-radio-button value="1" class="md-primary">Excel</md-radio-button>
+                <md-radio-button value="2"> PDF</md-radio-button>
+            </md-radio-group>
+        </div>
+        <div class="col s3 m3 l3 ">
+            <md-input-container class="md-block">
+                <label>Proyecto</label>
+                <md-select ng-model="proyectType">
+                    <md-option ng-repeat="proj in Comboproyecto" value="{{proj.id}}">
+                        {{proj.name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+        <div class="col s3 m3 l3 ">
+            <md-input-container class="md-block">
+                <label>AÑO</label>
+                <md-select ng-model="proyectYear">
+                    <md-option ng-repeat="year in ComboAnio" value="{{year.id}}">
+                        {{year.name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+        <div class="col s3 m3 l3 ">
+            <md-input-container class="md-block">
+                <label>MES</label>
+                <md-select ng-model="proyectMonth">
+                    <md-option ng-repeat="proj in ComboMes" value="{{proj.id}}">
+                        {{proj.name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+
+    </div>
+    <div class="row col s12 m12 l12">
+        <div class="col s5 m1 l1">
+            <md-button class="md-primary md-raised" ng-click="download()">
+                Descargar
+            </md-button>
+        </div>
+    </div>
+</div>
+
+<div class="row col s12 m12 12">
+    <md-toolbar class="md-hue-2">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>PORTEO Sistem BASE</span>
+            </h2>
+            <span flex></span>
+        </div>
+    </md-toolbar>
+
+    <div class="row">
+        <div class="row col s12 m12 l12">
+            <canvas class="col s12 m12 l12" id="iusaB" width="1200" height="600" style="min-width: 310px; margin: 0 auto"></canvas>
+        </div>
+
+    </div>
+
+    <br />
+    <br />
+    <md-toolbar class="md-hue-2">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>PORTEO Sistem UNO</span>
+            </h2>
+            <span flex></span>
+        </div>
+    </md-toolbar>
+    <div class="row">
+        <div class="row col s12 m12 l12">
+            <canvas class="col s12 m12 l12" id="iusa1" width="1200" height="600" style="min-width: 310px; margin: 0 auto"></canvas>
+        </div>
+
+    </div>
+
+
+
+</div>

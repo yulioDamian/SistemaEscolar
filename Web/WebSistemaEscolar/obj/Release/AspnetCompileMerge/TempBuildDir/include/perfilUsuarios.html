@@ -1,0 +1,162 @@
+﻿<div class="row col s12 m12 l12">
+    <div ng-cloak>
+        <md-content>
+            <md-tabs md-no-pagination="True" md-dynamic-height md-border-bottom md-selected="selectedIndex">
+
+                <md-tab label="Operaciones" ng-disabled="tab0Per">
+                    <md-content class="md-padding">
+                        <div layout="column" ng-cloak class="md-inline-form">
+                            <md-content class="row" style="width:100%;" layout-padding>
+                                <div class="row col s12 m12 l12">
+                                    <div class="row" style="height:100px;"></div>
+                                </div>
+                                <div class="row col s12 m12 l12">
+                                    <div class="col s4 m4 l4">
+                                        <div class="feature">
+                                            <md-icon md-svg-src="../Images/icon/add-3.svg" id="imgAlta" ng-click="SeleccionarAccion($event)" style="width:100px; height:100px;" class="rotate" aria-label="android "></md-icon>
+                                            <div class="feature-content">
+                                                <h4>Agregar</h4>
+                                                <p>Crea un nuevo perfil de usuario.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <div class="feature">
+                                            <md-icon md-svg-src="../Images/icon/edit-1.svg" id="imgMod" ng-click="SeleccionarAccion($event)" style="width:100px; height:100px;" class="rotate" aria-label="android "></md-icon>
+                                            <div class="feature-content">
+                                                <h4>Editar</h4>
+                                                <p>Modifica algún perfil existente.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <div class="feature">
+                                           
+                                            <!--md-icon md-svg-src="../Images/icon/trash.svg" id="imgBaja" ng-click="SeleccionarAccion($event)" style="width:100px; height:100px;" class="rotate" aria-label="android "></!--md-icon>
+                                            <div class="feature-content">
+                                                <h4>Eliminar</h4>
+                                                <p>Descarta un perfil.</p>
+                                            </div-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row col s12 m12 l12">
+                                </div>
+                            </md-content>
+                        </div>
+                    </md-content>
+                </md-tab>
+
+                <md-tab label="Datos" ng-disabled="tab1Per">
+                    <md-content class="md-padding">
+                        <div layout="column" ng-cloak class="md-inline-form">
+                                <div class="row col s12 m12 l12">
+                                    <div class="col s6 m6 l6">
+                                        <md-input-container ng-hide="vsSelPerfil" class="md-block">
+                                            <label>Perfil activo</label>
+                                            <md-select ng-change="CambioPerfil()" ng-model="Perfil.profileId">
+                                                <md-option ng-repeat="perfil in ComboPerfil" ng-if="perfil.active == 1"value="{{perfil.dataId}}">
+                                                    {{perfil.name}}
+                                                </md-option>
+                                            </md-select>
+                                        </md-input-container>
+                                    </div>
+                                    <div class="col s6 m6 l6">
+                                            <md-input-container ng-hide="vsSelPerfil" class="md-block">
+                                                <label>Perfil inactivo</label>
+                                                <md-select ng-change="CambioPerfil()" ng-model="Perfil.profileId">
+                                                    <md-option ng-repeat="perfil in ComboPerfil" ng-if="perfil.active == 0" value="{{perfil.dataId}}">
+                                                        {{perfil.name}}
+                                                    </md-option>
+                                                </md-select>
+                                            </md-input-container>
+                                    </div>
+                                </div>
+                            <br/><br/>
+                                <div class="row col s12 m12 l12">
+                                    <div style="height:110px;" class="col s4 m4 l4">
+                                        <md-input-container class="md-block">
+                                            <label>Tipo Usuario</label>
+                                            <md-select ng-model="Perfil.typeId" ng-disabled="elemInactivo" ng-change="showWarn(Perfil.typeId)">
+                                                <md-option ng-repeat="tipo in ComboTipoUsuario" value="{{tipo.dataId}}">
+                                                    {{tipo.name}}
+                                                </md-option>
+                                            </md-select>
+                                        </md-input-container>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <md-input-container>
+                                            <label>Nombre</label>
+                                            <input ng-model="Perfil.name" ng-disabled="elemInactivo" ng-change="showWarn(Perfil.name)"/>
+                                        </md-input-container>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <md-input-container ng-hide="visEstatus" class="md-block">
+                                            <label>Estatus</label>
+                                            <md-select ng-model="Perfil.active" ng-disabled="elemInactivo" ng-change="showWarn(Perfil.active)">
+                                                <md-option ng-repeat="est in ComboEstatus" value="{{est.id}}">
+                                                    {{est.name}}
+                                                </md-option>
+                                            </md-select>
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <div style="height:110px;" class="row col s12 m12 l12">
+                                    
+                                </div>
+                                <div class="row col s12 m12 l12">
+                                    <div style="height:110px;" class="col s4 m4 l4">
+                                        <div>
+                                            <md-button class="md-raised" ng-click="Regresar()">Atrás</md-button>
+                                        </div>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <div><br /></div>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <div class="row page-title">
+                                            <md-button class="md-raised" ng-click="Siguiente()">Siguiente</md-button>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </md-content>
+                </md-tab>
+
+                <md-tab label="Menús" ng-disabled="tab2Per">
+                    <md-content class="md-padding">
+                        <div layout="column" ng-cloak class="md-inline-form">
+                                <div class="row col s12 m12 l12">
+                                    <fieldset class="standard" style="border: 1px solid rgb(255, 255, 255);">
+                                        <div layout="row" layout-wrap flex>
+                                            <div flex="50" ng-repeat="item in items">
+                                                <md-checkbox ng-checked="exists(item, selected)" ng-click="toggle(item, selected)" style="position:relative;opacity:inherit;left:auto;">
+                                                    {{ item }}
+                                                </md-checkbox>
+                                            </div>
+                                        </div>
+                                    </fieldset>                                   
+                                </div>
+                                <div class="row col s12 m12 l12">
+                                    <div class="col s4 m4 l4">
+                                        <div>
+                                            <md-button class="md-raised" ng-click="Regresar()">Atrás</md-button>
+                                        </div>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <div><br /></div>
+                                    </div>
+                                    <div class="col s4 m4 l4">
+                                        <div class="row page-title">
+                                            <md-button class="md-raised" ng-click="confirmar($event)">{{boton}}</md-button>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </md-content>
+                </md-tab>
+
+            </md-tabs>
+        </md-content>
+    </div>
+</div>
