@@ -105,14 +105,15 @@
                             </div>
                             <div class="tab-pane fade" id="DataDireccion">
                                 <form class="form-inline">
-                                    <div class="form-group">
-                                       <select class="group">
-                                          <option>Estado de México</option>
-                                          <option>Aguascalientes</option>
-                                          <option>otro mas</option>
-                                          <option>y mas </option>
-                                          <option>y otro mas </option>
-                                        </select>
+                                       <div class="form-group">
+                                         <!-- Simple Select -->
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fullwidth" style="padding-top:inherit;">
+                                            <input class="mdl-textfield__input" type="text" id="EstadosDire" value="Belarus" readonly tabIndex="-1"/>
+                                            <label for="EstadosDire" class="mdl-textfield__label" style="top:-12px;">Estado</label>
+                                            <ul for="EstadosDire" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                                <li class="mdl-menu__item">Germany</li>
+                                            </ul>
+                                        </div>
                                     </div>
 
                                         
@@ -163,9 +164,9 @@
                                 <form class="form-inline">
                                     <div class="form-group">
                                          <!-- Simple Select -->
-                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fullwidth">
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fullwidth" style="padding-top:inherit;">
                                             <input class="mdl-textfield__input" type="text" id="EstadosInst" value="Belarus" readonly tabIndex="-1"/>
-                                            <label for="EstadosInst" class="mdl-textfield__label">Estado</label>
+                                            <label for="EstadosInst" class="mdl-textfield__label" style="top:-12px;">Estado</label>
                                             <ul for="EstadosInst" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
                                                 <li class="mdl-menu__item">Germany</li>
                                                 <li class="mdl-menu__item">Belarus</li>
