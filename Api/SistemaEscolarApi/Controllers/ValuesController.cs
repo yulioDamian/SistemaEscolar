@@ -5,6 +5,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using SistemaEscolarApi.Log;
+
 
 namespace SistemaEscolarApi.Controllers
 {
@@ -14,8 +16,8 @@ namespace SistemaEscolarApi.Controllers
     {
         [HttpGet, Route("Value/test")]
         public IHttpActionResult test()
-        {
-            return Ok("Me la pela el Ivan");
+        {            
+            return Ok(new LogEstados().lstestados());
         }
     }
 }

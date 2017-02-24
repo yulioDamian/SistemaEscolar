@@ -92,6 +92,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
       <Private>True</Private>
@@ -220,14 +221,75 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Clases\Estados.cs" />
+    <Compile Include="Clases\Login.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="DB\CatalogoBancos.cs">
+      <DependentUpon>ModelBDSistemaEscolar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\CatalogoEstados.cs">
+      <DependentUpon>ModelBDSistemaEscolar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\CatalogoTipoCuenta.cs">
+      <DependentUpon>ModelBDSistemaEscolar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\CatalogoTipoUsuario.cs">
+      <DependentUpon>ModelBDSistemaEscolar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\DireccionesUsuarios.cs">
+      <DependentUpon>ModelBDSistemaEscolar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\EstadoCuenta.cs">
+      <DependentUpon>ModelBDSistemaEscolar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\FormaPago.cs">
+      <DependentUpon>ModelBDSistemaEscolar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Institucion.cs">
+      <DependentUpon>ModelBDSistemaEscolar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\ModelBDSistemaEscolar.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBDSistemaEscolar.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\ModelBDSistemaEscolar.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBDSistemaEscolar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\ModelBDSistemaEscolar.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBDSistemaEscolar.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DB\PreguntaSecreta.cs">
+      <DependentUpon>ModelBDSistemaEscolar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\sysdiagrams.cs">
+      <DependentUpon>ModelBDSistemaEscolar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Usuarios.cs">
+      <DependentUpon>ModelBDSistemaEscolar.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Log\LogEstados.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DB\ModelBDSistemaEscolar.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelBDSistemaEscolar.edmx</DependentUpon>
+      <LastGenOutput>ModelBDSistemaEscolar.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DB\ModelBDSistemaEscolar.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelBDSistemaEscolar.edmx</DependentUpon>
+      <LastGenOutput>ModelBDSistemaEscolar.cs</LastGenOutput>
+    </Content>
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -245,7 +307,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <EntityDeploy Include="DB\ModelBDSistemaEscolar.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelBDSistemaEscolar.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="DB\ModelBDSistemaEscolar.edmx.diagram">
+      <DependentUpon>ModelBDSistemaEscolar.edmx</DependentUpon>
+    </Content>
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -265,7 +337,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53194</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:53194/</IISUrl>
+          <IISUrl>http://localhost:53188/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

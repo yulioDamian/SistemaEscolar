@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_A18E01_DBEscolarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CatalogoBancos">
+    <Key>
+      <PropertyRef Name="Id_Banco" />
+    </Key>
+    <Property Name="Id_Banco" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ban_Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Ban_Estatus" Type="bit" Nullable="false" />
+    <Property Name="Ban_FechaAlta" Type="datetime" Nullable="false" />
+    <Property Name="Ban_FechaModificacion" Type="datetime" Nullable="false" />
+    <Property Name="Ban_FechaBaja" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CatalogoEstados">
+    <Key>
+      <PropertyRef Name="Id_Estado" />
+    </Key>
+    <Property Name="Id_Estado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Est_Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Est_Estatus" Type="bit" Nullable="false" />
+    <Property Name="Est_FechaAlta" Type="datetime" Nullable="false" />
+    <Property Name="Est_FechaModificacion" Type="datetime" Nullable="false" />
+    <Property Name="Est_FechaBaja" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CatalogoTipoCuenta">
+    <Key>
+      <PropertyRef Name="Id_TipoCuenta" />
+    </Key>
+    <Property Name="Id_TipoCuenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TCue_Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TCue_Estatus" Type="bit" Nullable="false" />
+    <Property Name="TCue_FechaAlta" Type="datetime" Nullable="false" />
+    <Property Name="TCue_FechaModificacion" Type="datetime" Nullable="false" />
+    <Property Name="TCue_FechaBaja" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CatalogoTipoUsuario">
+    <Key>
+      <PropertyRef Name="Id_TipoUsuario" />
+    </Key>
+    <Property Name="Id_TipoUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TUsu_Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TUsu_Clase" Type="int" Nullable="false" />
+    <Property Name="TUsu_Estatus" Type="bit" Nullable="false" />
+    <Property Name="TUsu_FechaAlta" Type="datetime" Nullable="false" />
+    <Property Name="TUsu_FechaModificacion" Type="datetime" Nullable="false" />
+    <Property Name="TUsu_FechaBaja" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DireccionesUsuarios">
+    <Key>
+      <PropertyRef Name="Id_Direccion" />
+    </Key>
+    <Property Name="Id_Direccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Dir_Id_Usuario" Type="int" Nullable="false" />
+    <Property Name="Dir_Calle" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Dir_NumeroInt" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Dir_NumeroExt" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Dir_Colonia" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Dir_Delegacion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Dir_Municipio" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Dir_Id_Estado" Type="int" Nullable="false" />
+    <Property Name="Dir_CodigoPostal" Type="int" Nullable="false" />
+    <Property Name="Dir_Estatus" Type="bit" Nullable="false" />
+    <Property Name="Dir_FechaAlta" Type="datetime" Nullable="false" />
+    <Property Name="Dir_FechaModificacion" Type="datetime" Nullable="false" />
+    <Property Name="Dir_FechaBaja" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EstadoCuenta">
+    <Key>
+      <PropertyRef Name="Id_EstadoCuenta" />
+    </Key>
+    <Property Name="Id_EstadoCuenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ECue_Id_Usuario" Type="int" Nullable="false" />
+    <Property Name="ECue_MontoFijo" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="ECue_MontoMes" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="ECue_Adeudo" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="ECue_Mes" Type="int" Nullable="false" />
+    <Property Name="ECue_Ano" Type="int" Nullable="false" />
+    <Property Name="ECue_Estatus" Type="bit" Nullable="false" />
+    <Property Name="ECue_FechaAlta" Type="datetime" Nullable="false" />
+    <Property Name="ECue_FechaModificacion" Type="datetime" Nullable="false" />
+    <Property Name="ECue_FechaBaja" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FormaPago">
+    <Key>
+      <PropertyRef Name="Id_FormaPago" />
+    </Key>
+    <Property Name="Id_FormaPago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FPag_Id_Usuario" Type="int" Nullable="false" />
+    <Property Name="FPag_Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FPag_NumeroTarjeta" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FPag_NumeroCuenta" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FPag_FechaVencimiento" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="FPag_Ccv" Type="int" Nullable="false" />
+    <Property Name="FPag_Id_Banco" Type="int" Nullable="false" />
+    <Property Name="FPag_Id_TipoCuenta" Type="int" Nullable="false" />
+    <Property Name="FPag_Estatus" Type="bit" Nullable="false" />
+    <Property Name="FPag_FechaAlta" Type="datetime" Nullable="false" />
+    <Property Name="FPag_FechaModificacion" Type="datetime" Nullable="false" />
+    <Property Name="FPag_FechaBaja" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Institucion">
+    <Key>
+      <PropertyRef Name="Id_Institucion" />
+    </Key>
+    <Property Name="Id_Institucion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ins_Id_Usuario" Type="int" Nullable="false" />
+    <Property Name="Ins_Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Ins_Clave" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Ins_Direccion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Ins_CodigoPostal" Type="int" Nullable="false" />
+    <Property Name="Ins_Id_Estado" Type="int" Nullable="false" />
+    <Property Name="Ins_UrlLogo" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Ins_Estatus" Type="bit" Nullable="false" />
+    <Property Name="Ins_FechaAlta" Type="datetime" Nullable="false" />
+    <Property Name="Ins_FechaModificacion" Type="datetime" Nullable="false" />
+    <Property Name="Ins_FechaBaja" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PreguntaSecreta">
+    <Key>
+      <PropertyRef Name="Id_Pregunta" />
+    </Key>
+    <Property Name="Id_Pregunta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Pre_Id_Usuario" Type="int" Nullable="false" />
+    <Property Name="Pre_Cuestion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Pre_Respuesta" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Pre_Estatus" Type="bit" Nullable="false" />
+    <Property Name="Pre_FechaAlta" Type="datetime" Nullable="false" />
+    <Property Name="Pre_FechaModificacion" Type="datetime" Nullable="false" />
+    <Property Name="Pre_FechaBaja" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="Id_Usuario" />
+    </Key>
+    <Property Name="Id_Usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Usu_ClaveUnica" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Usu_Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Usu_Curp" Type="varchar" MaxLength="18" Nullable="false" />
+    <Property Name="Usu_Rfc" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Usu_ClaveDocente" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Usu_Turno" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Usu_CorreoElectronico" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Usu_Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Usu_Clave" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Usu_ConfirmaClave" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Usu_Id_TipoUsuario" Type="int" Nullable="false" />
+    <Property Name="Usu_Estatus" Type="bit" Nullable="false" />
+    <Property Name="Usu_FechaAlta" Type="datetime" Nullable="false" />
+    <Property Name="Usu_FechaModificacion" Type="datetime" Nullable="false" />
+    <Property Name="Usu_FechaBaja" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_DireccionesUsuarios_CatalogoEstados">
+    <End Role="CatalogoEstados" Type="Self.CatalogoEstados" Multiplicity="1" />
+    <End Role="DireccionesUsuarios" Type="Self.DireccionesUsuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CatalogoEstados">
+        <PropertyRef Name="Id_Estado" />
+      </Principal>
+      <Dependent Role="DireccionesUsuarios">
+        <PropertyRef Name="Dir_Id_Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DireccionesUsuarios_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="DireccionesUsuarios" Type="Self.DireccionesUsuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id_Usuario" />
+      </Principal>
+      <Dependent Role="DireccionesUsuarios">
+        <PropertyRef Name="Dir_Id_Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EstadoCuenta_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="EstadoCuenta" Type="Self.EstadoCuenta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id_Usuario" />
+      </Principal>
+      <Dependent Role="EstadoCuenta">
+        <PropertyRef Name="ECue_Id_Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormaPago_CatalogoBancos">
+    <End Role="CatalogoBancos" Type="Self.CatalogoBancos" Multiplicity="1" />
+    <End Role="FormaPago" Type="Self.FormaPago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CatalogoBancos">
+        <PropertyRef Name="Id_Banco" />
+      </Principal>
+      <Dependent Role="FormaPago">
+        <PropertyRef Name="FPag_Id_Banco" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormaPago_CatalogoTipoCuenta">
+    <End Role="CatalogoTipoCuenta" Type="Self.CatalogoTipoCuenta" Multiplicity="1" />
+    <End Role="FormaPago" Type="Self.FormaPago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CatalogoTipoCuenta">
+        <PropertyRef Name="Id_TipoCuenta" />
+      </Principal>
+      <Dependent Role="FormaPago">
+        <PropertyRef Name="FPag_Id_TipoCuenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormaPago_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="FormaPago" Type="Self.FormaPago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id_Usuario" />
+      </Principal>
+      <Dependent Role="FormaPago">
+        <PropertyRef Name="FPag_Id_Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Institucion_CatalogoEstados">
+    <End Role="CatalogoEstados" Type="Self.CatalogoEstados" Multiplicity="1" />
+    <End Role="Institucion" Type="Self.Institucion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CatalogoEstados">
+        <PropertyRef Name="Id_Estado" />
+      </Principal>
+      <Dependent Role="Institucion">
+        <PropertyRef Name="Ins_Id_Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Institucion_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="Institucion" Type="Self.Institucion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id_Usuario" />
+      </Principal>
+      <Dependent Role="Institucion">
+        <PropertyRef Name="Ins_Id_Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PreguntaSecreta_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="PreguntaSecreta" Type="Self.PreguntaSecreta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id_Usuario" />
+      </Principal>
+      <Dependent Role="PreguntaSecreta">
+        <PropertyRef Name="Pre_Id_Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuarios_CatalogoTipoUsuario">
+    <End Role="CatalogoTipoUsuario" Type="Self.CatalogoTipoUsuario" Multiplicity="1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CatalogoTipoUsuario">
+        <PropertyRef Name="Id_TipoUsuario" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="Usu_Id_TipoUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DB_A18E01_DBEscolarModelStoreContainer">
+    <EntitySet Name="CatalogoBancos" EntityType="Self.CatalogoBancos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CatalogoEstados" EntityType="Self.CatalogoEstados" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CatalogoTipoCuenta" EntityType="Self.CatalogoTipoCuenta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CatalogoTipoUsuario" EntityType="Self.CatalogoTipoUsuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DireccionesUsuarios" EntityType="Self.DireccionesUsuarios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EstadoCuenta" EntityType="Self.EstadoCuenta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FormaPago" EntityType="Self.FormaPago" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Institucion" EntityType="Self.Institucion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PreguntaSecreta" EntityType="Self.PreguntaSecreta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_DireccionesUsuarios_CatalogoEstados" Association="Self.FK_DireccionesUsuarios_CatalogoEstados">
+      <End Role="CatalogoEstados" EntitySet="CatalogoEstados" />
+      <End Role="DireccionesUsuarios" EntitySet="DireccionesUsuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DireccionesUsuarios_Usuarios" Association="Self.FK_DireccionesUsuarios_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="DireccionesUsuarios" EntitySet="DireccionesUsuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EstadoCuenta_Usuarios" Association="Self.FK_EstadoCuenta_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="EstadoCuenta" EntitySet="EstadoCuenta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormaPago_CatalogoBancos" Association="Self.FK_FormaPago_CatalogoBancos">
+      <End Role="CatalogoBancos" EntitySet="CatalogoBancos" />
+      <End Role="FormaPago" EntitySet="FormaPago" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormaPago_CatalogoTipoCuenta" Association="Self.FK_FormaPago_CatalogoTipoCuenta">
+      <End Role="CatalogoTipoCuenta" EntitySet="CatalogoTipoCuenta" />
+      <End Role="FormaPago" EntitySet="FormaPago" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormaPago_Usuarios" Association="Self.FK_FormaPago_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="FormaPago" EntitySet="FormaPago" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Institucion_CatalogoEstados" Association="Self.FK_Institucion_CatalogoEstados">
+      <End Role="CatalogoEstados" EntitySet="CatalogoEstados" />
+      <End Role="Institucion" EntitySet="Institucion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Institucion_Usuarios" Association="Self.FK_Institucion_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Institucion" EntitySet="Institucion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PreguntaSecreta_Usuarios" Association="Self.FK_PreguntaSecreta_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="PreguntaSecreta" EntitySet="PreguntaSecreta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuarios_CatalogoTipoUsuario" Association="Self.FK_Usuarios_CatalogoTipoUsuario">
+      <End Role="CatalogoTipoUsuario" EntitySet="CatalogoTipoUsuario" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

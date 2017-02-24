@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_A18E01_DBEscolarModelStoreContainer" CdmEntityContainer="DB_A18E01_DBEscolarEntities">
+    <EntitySetMapping Name="CatalogoBancos">
+      <EntityTypeMapping TypeName="DB_A18E01_DBEscolarModel.CatalogoBancos">
+        <MappingFragment StoreEntitySet="CatalogoBancos">
+          <ScalarProperty Name="Id_Banco" ColumnName="Id_Banco" />
+          <ScalarProperty Name="Ban_Nombre" ColumnName="Ban_Nombre" />
+          <ScalarProperty Name="Ban_Estatus" ColumnName="Ban_Estatus" />
+          <ScalarProperty Name="Ban_FechaAlta" ColumnName="Ban_FechaAlta" />
+          <ScalarProperty Name="Ban_FechaModificacion" ColumnName="Ban_FechaModificacion" />
+          <ScalarProperty Name="Ban_FechaBaja" ColumnName="Ban_FechaBaja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatalogoEstados">
+      <EntityTypeMapping TypeName="DB_A18E01_DBEscolarModel.CatalogoEstados">
+        <MappingFragment StoreEntitySet="CatalogoEstados">
+          <ScalarProperty Name="Id_Estado" ColumnName="Id_Estado" />
+          <ScalarProperty Name="Est_Nombre" ColumnName="Est_Nombre" />
+          <ScalarProperty Name="Est_Estatus" ColumnName="Est_Estatus" />
+          <ScalarProperty Name="Est_FechaAlta" ColumnName="Est_FechaAlta" />
+          <ScalarProperty Name="Est_FechaModificacion" ColumnName="Est_FechaModificacion" />
+          <ScalarProperty Name="Est_FechaBaja" ColumnName="Est_FechaBaja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatalogoTipoCuenta">
+      <EntityTypeMapping TypeName="DB_A18E01_DBEscolarModel.CatalogoTipoCuenta">
+        <MappingFragment StoreEntitySet="CatalogoTipoCuenta">
+          <ScalarProperty Name="Id_TipoCuenta" ColumnName="Id_TipoCuenta" />
+          <ScalarProperty Name="TCue_Nombre" ColumnName="TCue_Nombre" />
+          <ScalarProperty Name="TCue_Estatus" ColumnName="TCue_Estatus" />
+          <ScalarProperty Name="TCue_FechaAlta" ColumnName="TCue_FechaAlta" />
+          <ScalarProperty Name="TCue_FechaModificacion" ColumnName="TCue_FechaModificacion" />
+          <ScalarProperty Name="TCue_FechaBaja" ColumnName="TCue_FechaBaja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatalogoTipoUsuario">
+      <EntityTypeMapping TypeName="DB_A18E01_DBEscolarModel.CatalogoTipoUsuario">
+        <MappingFragment StoreEntitySet="CatalogoTipoUsuario">
+          <ScalarProperty Name="Id_TipoUsuario" ColumnName="Id_TipoUsuario" />
+          <ScalarProperty Name="TUsu_Nombre" ColumnName="TUsu_Nombre" />
+          <ScalarProperty Name="TUsu_Clase" ColumnName="TUsu_Clase" />
+          <ScalarProperty Name="TUsu_Estatus" ColumnName="TUsu_Estatus" />
+          <ScalarProperty Name="TUsu_FechaAlta" ColumnName="TUsu_FechaAlta" />
+          <ScalarProperty Name="TUsu_FechaModificacion" ColumnName="TUsu_FechaModificacion" />
+          <ScalarProperty Name="TUsu_FechaBaja" ColumnName="TUsu_FechaBaja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DireccionesUsuarios">
+      <EntityTypeMapping TypeName="DB_A18E01_DBEscolarModel.DireccionesUsuarios">
+        <MappingFragment StoreEntitySet="DireccionesUsuarios">
+          <ScalarProperty Name="Id_Direccion" ColumnName="Id_Direccion" />
+          <ScalarProperty Name="Dir_Id_Usuario" ColumnName="Dir_Id_Usuario" />
+          <ScalarProperty Name="Dir_Calle" ColumnName="Dir_Calle" />
+          <ScalarProperty Name="Dir_NumeroInt" ColumnName="Dir_NumeroInt" />
+          <ScalarProperty Name="Dir_NumeroExt" ColumnName="Dir_NumeroExt" />
+          <ScalarProperty Name="Dir_Colonia" ColumnName="Dir_Colonia" />
+          <ScalarProperty Name="Dir_Delegacion" ColumnName="Dir_Delegacion" />
+          <ScalarProperty Name="Dir_Municipio" ColumnName="Dir_Municipio" />
+          <ScalarProperty Name="Dir_Id_Estado" ColumnName="Dir_Id_Estado" />
+          <ScalarProperty Name="Dir_CodigoPostal" ColumnName="Dir_CodigoPostal" />
+          <ScalarProperty Name="Dir_Estatus" ColumnName="Dir_Estatus" />
+          <ScalarProperty Name="Dir_FechaAlta" ColumnName="Dir_FechaAlta" />
+          <ScalarProperty Name="Dir_FechaModificacion" ColumnName="Dir_FechaModificacion" />
+          <ScalarProperty Name="Dir_FechaBaja" ColumnName="Dir_FechaBaja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EstadoCuenta">
+      <EntityTypeMapping TypeName="DB_A18E01_DBEscolarModel.EstadoCuenta">
+        <MappingFragment StoreEntitySet="EstadoCuenta">
+          <ScalarProperty Name="Id_EstadoCuenta" ColumnName="Id_EstadoCuenta" />
+          <ScalarProperty Name="ECue_Id_Usuario" ColumnName="ECue_Id_Usuario" />
+          <ScalarProperty Name="ECue_MontoFijo" ColumnName="ECue_MontoFijo" />
+          <ScalarProperty Name="ECue_MontoMes" ColumnName="ECue_MontoMes" />
+          <ScalarProperty Name="ECue_Adeudo" ColumnName="ECue_Adeudo" />
+          <ScalarProperty Name="ECue_Mes" ColumnName="ECue_Mes" />
+          <ScalarProperty Name="ECue_Ano" ColumnName="ECue_Ano" />
+          <ScalarProperty Name="ECue_Estatus" ColumnName="ECue_Estatus" />
+          <ScalarProperty Name="ECue_FechaAlta" ColumnName="ECue_FechaAlta" />
+          <ScalarProperty Name="ECue_FechaModificacion" ColumnName="ECue_FechaModificacion" />
+          <ScalarProperty Name="ECue_FechaBaja" ColumnName="ECue_FechaBaja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FormaPago">
+      <EntityTypeMapping TypeName="DB_A18E01_DBEscolarModel.FormaPago">
+        <MappingFragment StoreEntitySet="FormaPago">
+          <ScalarProperty Name="Id_FormaPago" ColumnName="Id_FormaPago" />
+          <ScalarProperty Name="FPag_Id_Usuario" ColumnName="FPag_Id_Usuario" />
+          <ScalarProperty Name="FPag_Nombre" ColumnName="FPag_Nombre" />
+          <ScalarProperty Name="FPag_NumeroTarjeta" ColumnName="FPag_NumeroTarjeta" />
+          <ScalarProperty Name="FPag_NumeroCuenta" ColumnName="FPag_NumeroCuenta" />
+          <ScalarProperty Name="FPag_FechaVencimiento" ColumnName="FPag_FechaVencimiento" />
+          <ScalarProperty Name="FPag_Ccv" ColumnName="FPag_Ccv" />
+          <ScalarProperty Name="FPag_Id_Banco" ColumnName="FPag_Id_Banco" />
+          <ScalarProperty Name="FPag_Id_TipoCuenta" ColumnName="FPag_Id_TipoCuenta" />
+          <ScalarProperty Name="FPag_Estatus" ColumnName="FPag_Estatus" />
+          <ScalarProperty Name="FPag_FechaAlta" ColumnName="FPag_FechaAlta" />
+          <ScalarProperty Name="FPag_FechaModificacion" ColumnName="FPag_FechaModificacion" />
+          <ScalarProperty Name="FPag_FechaBaja" ColumnName="FPag_FechaBaja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Institucion">
+      <EntityTypeMapping TypeName="DB_A18E01_DBEscolarModel.Institucion">
+        <MappingFragment StoreEntitySet="Institucion">
+          <ScalarProperty Name="Id_Institucion" ColumnName="Id_Institucion" />
+          <ScalarProperty Name="Ins_Id_Usuario" ColumnName="Ins_Id_Usuario" />
+          <ScalarProperty Name="Ins_Nombre" ColumnName="Ins_Nombre" />
+          <ScalarProperty Name="Ins_Clave" ColumnName="Ins_Clave" />
+          <ScalarProperty Name="Ins_Direccion" ColumnName="Ins_Direccion" />
+          <ScalarProperty Name="Ins_CodigoPostal" ColumnName="Ins_CodigoPostal" />
+          <ScalarProperty Name="Ins_Id_Estado" ColumnName="Ins_Id_Estado" />
+          <ScalarProperty Name="Ins_UrlLogo" ColumnName="Ins_UrlLogo" />
+          <ScalarProperty Name="Ins_Estatus" ColumnName="Ins_Estatus" />
+          <ScalarProperty Name="Ins_FechaAlta" ColumnName="Ins_FechaAlta" />
+          <ScalarProperty Name="Ins_FechaModificacion" ColumnName="Ins_FechaModificacion" />
+          <ScalarProperty Name="Ins_FechaBaja" ColumnName="Ins_FechaBaja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PreguntaSecreta">
+      <EntityTypeMapping TypeName="DB_A18E01_DBEscolarModel.PreguntaSecreta">
+        <MappingFragment StoreEntitySet="PreguntaSecreta">
+          <ScalarProperty Name="Id_Pregunta" ColumnName="Id_Pregunta" />
+          <ScalarProperty Name="Pre_Id_Usuario" ColumnName="Pre_Id_Usuario" />
+          <ScalarProperty Name="Pre_Cuestion" ColumnName="Pre_Cuestion" />
+          <ScalarProperty Name="Pre_Respuesta" ColumnName="Pre_Respuesta" />
+          <ScalarProperty Name="Pre_Estatus" ColumnName="Pre_Estatus" />
+          <ScalarProperty Name="Pre_FechaAlta" ColumnName="Pre_FechaAlta" />
+          <ScalarProperty Name="Pre_FechaModificacion" ColumnName="Pre_FechaModificacion" />
+          <ScalarProperty Name="Pre_FechaBaja" ColumnName="Pre_FechaBaja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="DB_A18E01_DBEscolarModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="DB_A18E01_DBEscolarModel.Usuarios">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+          <ScalarProperty Name="Usu_ClaveUnica" ColumnName="Usu_ClaveUnica" />
+          <ScalarProperty Name="Usu_Nombre" ColumnName="Usu_Nombre" />
+          <ScalarProperty Name="Usu_Curp" ColumnName="Usu_Curp" />
+          <ScalarProperty Name="Usu_Rfc" ColumnName="Usu_Rfc" />
+          <ScalarProperty Name="Usu_ClaveDocente" ColumnName="Usu_ClaveDocente" />
+          <ScalarProperty Name="Usu_Turno" ColumnName="Usu_Turno" />
+          <ScalarProperty Name="Usu_CorreoElectronico" ColumnName="Usu_CorreoElectronico" />
+          <ScalarProperty Name="Usu_Usuario" ColumnName="Usu_Usuario" />
+          <ScalarProperty Name="Usu_Clave" ColumnName="Usu_Clave" />
+          <ScalarProperty Name="Usu_ConfirmaClave" ColumnName="Usu_ConfirmaClave" />
+          <ScalarProperty Name="Usu_Id_TipoUsuario" ColumnName="Usu_Id_TipoUsuario" />
+          <ScalarProperty Name="Usu_Estatus" ColumnName="Usu_Estatus" />
+          <ScalarProperty Name="Usu_FechaAlta" ColumnName="Usu_FechaAlta" />
+          <ScalarProperty Name="Usu_FechaModificacion" ColumnName="Usu_FechaModificacion" />
+          <ScalarProperty Name="Usu_FechaBaja" ColumnName="Usu_FechaBaja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

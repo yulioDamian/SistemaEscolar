@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="76ad6615199c44278ca33b8db21099ac" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_A18E01_DBEscolarModel.CatalogoBancos" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A18E01_DBEscolarModel.CatalogoEstados" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A18E01_DBEscolarModel.CatalogoTipoCuenta" Width="1.5" PointX="6" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A18E01_DBEscolarModel.CatalogoTipoUsuario" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A18E01_DBEscolarModel.DireccionesUsuarios" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A18E01_DBEscolarModel.EstadoCuenta" Width="1.5" PointX="5.25" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A18E01_DBEscolarModel.FormaPago" Width="1.5" PointX="8.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A18E01_DBEscolarModel.Institucion" Width="1.5" PointX="8.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A18E01_DBEscolarModel.PreguntaSecreta" Width="1.5" PointX="5.25" PointY="27.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A18E01_DBEscolarModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A18E01_DBEscolarModel.Usuarios" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <AssociationConnector Association="DB_A18E01_DBEscolarModel.FK_FormaPago_CatalogoBancos" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A18E01_DBEscolarModel.FK_DireccionesUsuarios_CatalogoEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A18E01_DBEscolarModel.FK_Institucion_CatalogoEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A18E01_DBEscolarModel.FK_FormaPago_CatalogoTipoCuenta" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A18E01_DBEscolarModel.FK_Usuarios_CatalogoTipoUsuario" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A18E01_DBEscolarModel.FK_DireccionesUsuarios_Usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A18E01_DBEscolarModel.FK_EstadoCuenta_Usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A18E01_DBEscolarModel.FK_FormaPago_Usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A18E01_DBEscolarModel.FK_Institucion_Usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A18E01_DBEscolarModel.FK_PreguntaSecreta_Usuarios" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

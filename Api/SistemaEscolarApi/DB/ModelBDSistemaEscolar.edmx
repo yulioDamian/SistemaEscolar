@@ -1,0 +1,896 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DB_A18E01_DBEscolarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CatalogoBancos">
+          <Key>
+            <PropertyRef Name="Id_Banco" />
+          </Key>
+          <Property Name="Id_Banco" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ban_Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Ban_Estatus" Type="bit" Nullable="false" />
+          <Property Name="Ban_FechaAlta" Type="datetime" Nullable="false" />
+          <Property Name="Ban_FechaModificacion" Type="datetime" Nullable="false" />
+          <Property Name="Ban_FechaBaja" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CatalogoEstados">
+          <Key>
+            <PropertyRef Name="Id_Estado" />
+          </Key>
+          <Property Name="Id_Estado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Est_Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Est_Estatus" Type="bit" Nullable="false" />
+          <Property Name="Est_FechaAlta" Type="datetime" Nullable="false" />
+          <Property Name="Est_FechaModificacion" Type="datetime" Nullable="false" />
+          <Property Name="Est_FechaBaja" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CatalogoTipoCuenta">
+          <Key>
+            <PropertyRef Name="Id_TipoCuenta" />
+          </Key>
+          <Property Name="Id_TipoCuenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TCue_Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TCue_Estatus" Type="bit" Nullable="false" />
+          <Property Name="TCue_FechaAlta" Type="datetime" Nullable="false" />
+          <Property Name="TCue_FechaModificacion" Type="datetime" Nullable="false" />
+          <Property Name="TCue_FechaBaja" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CatalogoTipoUsuario">
+          <Key>
+            <PropertyRef Name="Id_TipoUsuario" />
+          </Key>
+          <Property Name="Id_TipoUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TUsu_Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TUsu_Clase" Type="int" Nullable="false" />
+          <Property Name="TUsu_Estatus" Type="bit" Nullable="false" />
+          <Property Name="TUsu_FechaAlta" Type="datetime" Nullable="false" />
+          <Property Name="TUsu_FechaModificacion" Type="datetime" Nullable="false" />
+          <Property Name="TUsu_FechaBaja" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DireccionesUsuarios">
+          <Key>
+            <PropertyRef Name="Id_Direccion" />
+          </Key>
+          <Property Name="Id_Direccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dir_Id_Usuario" Type="int" Nullable="false" />
+          <Property Name="Dir_Calle" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dir_NumeroInt" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Dir_NumeroExt" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Dir_Colonia" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dir_Delegacion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dir_Municipio" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dir_Id_Estado" Type="int" Nullable="false" />
+          <Property Name="Dir_CodigoPostal" Type="int" Nullable="false" />
+          <Property Name="Dir_Estatus" Type="bit" Nullable="false" />
+          <Property Name="Dir_FechaAlta" Type="datetime" Nullable="false" />
+          <Property Name="Dir_FechaModificacion" Type="datetime" Nullable="false" />
+          <Property Name="Dir_FechaBaja" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EstadoCuenta">
+          <Key>
+            <PropertyRef Name="Id_EstadoCuenta" />
+          </Key>
+          <Property Name="Id_EstadoCuenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ECue_Id_Usuario" Type="int" Nullable="false" />
+          <Property Name="ECue_MontoFijo" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ECue_MontoMes" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ECue_Adeudo" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ECue_Mes" Type="int" Nullable="false" />
+          <Property Name="ECue_Ano" Type="int" Nullable="false" />
+          <Property Name="ECue_Estatus" Type="bit" Nullable="false" />
+          <Property Name="ECue_FechaAlta" Type="datetime" Nullable="false" />
+          <Property Name="ECue_FechaModificacion" Type="datetime" Nullable="false" />
+          <Property Name="ECue_FechaBaja" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FormaPago">
+          <Key>
+            <PropertyRef Name="Id_FormaPago" />
+          </Key>
+          <Property Name="Id_FormaPago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FPag_Id_Usuario" Type="int" Nullable="false" />
+          <Property Name="FPag_Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FPag_NumeroTarjeta" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FPag_NumeroCuenta" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FPag_FechaVencimiento" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="FPag_Ccv" Type="int" Nullable="false" />
+          <Property Name="FPag_Id_Banco" Type="int" Nullable="false" />
+          <Property Name="FPag_Id_TipoCuenta" Type="int" Nullable="false" />
+          <Property Name="FPag_Estatus" Type="bit" Nullable="false" />
+          <Property Name="FPag_FechaAlta" Type="datetime" Nullable="false" />
+          <Property Name="FPag_FechaModificacion" Type="datetime" Nullable="false" />
+          <Property Name="FPag_FechaBaja" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Institucion">
+          <Key>
+            <PropertyRef Name="Id_Institucion" />
+          </Key>
+          <Property Name="Id_Institucion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ins_Id_Usuario" Type="int" Nullable="false" />
+          <Property Name="Ins_Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ins_Clave" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ins_Direccion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ins_CodigoPostal" Type="int" Nullable="false" />
+          <Property Name="Ins_Id_Estado" Type="int" Nullable="false" />
+          <Property Name="Ins_UrlLogo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Ins_Estatus" Type="bit" Nullable="false" />
+          <Property Name="Ins_FechaAlta" Type="datetime" Nullable="false" />
+          <Property Name="Ins_FechaModificacion" Type="datetime" Nullable="false" />
+          <Property Name="Ins_FechaBaja" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PreguntaSecreta">
+          <Key>
+            <PropertyRef Name="Id_Pregunta" />
+          </Key>
+          <Property Name="Id_Pregunta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pre_Id_Usuario" Type="int" Nullable="false" />
+          <Property Name="Pre_Cuestion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pre_Respuesta" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pre_Estatus" Type="bit" Nullable="false" />
+          <Property Name="Pre_FechaAlta" Type="datetime" Nullable="false" />
+          <Property Name="Pre_FechaModificacion" Type="datetime" Nullable="false" />
+          <Property Name="Pre_FechaBaja" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="Id_Usuario" />
+          </Key>
+          <Property Name="Id_Usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Usu_ClaveUnica" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Usu_Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Usu_Curp" Type="varchar" MaxLength="18" Nullable="false" />
+          <Property Name="Usu_Rfc" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Usu_ClaveDocente" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Usu_Turno" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Usu_CorreoElectronico" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Usu_Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Usu_Clave" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Usu_ConfirmaClave" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Usu_Id_TipoUsuario" Type="int" Nullable="false" />
+          <Property Name="Usu_Estatus" Type="bit" Nullable="false" />
+          <Property Name="Usu_FechaAlta" Type="datetime" Nullable="false" />
+          <Property Name="Usu_FechaModificacion" Type="datetime" Nullable="false" />
+          <Property Name="Usu_FechaBaja" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_DireccionesUsuarios_CatalogoEstados">
+          <End Role="CatalogoEstados" Type="Self.CatalogoEstados" Multiplicity="1" />
+          <End Role="DireccionesUsuarios" Type="Self.DireccionesUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatalogoEstados">
+              <PropertyRef Name="Id_Estado" />
+            </Principal>
+            <Dependent Role="DireccionesUsuarios">
+              <PropertyRef Name="Dir_Id_Estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DireccionesUsuarios_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="DireccionesUsuarios" Type="Self.DireccionesUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Id_Usuario" />
+            </Principal>
+            <Dependent Role="DireccionesUsuarios">
+              <PropertyRef Name="Dir_Id_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EstadoCuenta_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="EstadoCuenta" Type="Self.EstadoCuenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Id_Usuario" />
+            </Principal>
+            <Dependent Role="EstadoCuenta">
+              <PropertyRef Name="ECue_Id_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormaPago_CatalogoBancos">
+          <End Role="CatalogoBancos" Type="Self.CatalogoBancos" Multiplicity="1" />
+          <End Role="FormaPago" Type="Self.FormaPago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatalogoBancos">
+              <PropertyRef Name="Id_Banco" />
+            </Principal>
+            <Dependent Role="FormaPago">
+              <PropertyRef Name="FPag_Id_Banco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormaPago_CatalogoTipoCuenta">
+          <End Role="CatalogoTipoCuenta" Type="Self.CatalogoTipoCuenta" Multiplicity="1" />
+          <End Role="FormaPago" Type="Self.FormaPago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatalogoTipoCuenta">
+              <PropertyRef Name="Id_TipoCuenta" />
+            </Principal>
+            <Dependent Role="FormaPago">
+              <PropertyRef Name="FPag_Id_TipoCuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormaPago_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="FormaPago" Type="Self.FormaPago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Id_Usuario" />
+            </Principal>
+            <Dependent Role="FormaPago">
+              <PropertyRef Name="FPag_Id_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Institucion_CatalogoEstados">
+          <End Role="CatalogoEstados" Type="Self.CatalogoEstados" Multiplicity="1" />
+          <End Role="Institucion" Type="Self.Institucion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatalogoEstados">
+              <PropertyRef Name="Id_Estado" />
+            </Principal>
+            <Dependent Role="Institucion">
+              <PropertyRef Name="Ins_Id_Estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Institucion_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="Institucion" Type="Self.Institucion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Id_Usuario" />
+            </Principal>
+            <Dependent Role="Institucion">
+              <PropertyRef Name="Ins_Id_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PreguntaSecreta_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="PreguntaSecreta" Type="Self.PreguntaSecreta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Id_Usuario" />
+            </Principal>
+            <Dependent Role="PreguntaSecreta">
+              <PropertyRef Name="Pre_Id_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuarios_CatalogoTipoUsuario">
+          <End Role="CatalogoTipoUsuario" Type="Self.CatalogoTipoUsuario" Multiplicity="1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatalogoTipoUsuario">
+              <PropertyRef Name="Id_TipoUsuario" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="Usu_Id_TipoUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_A18E01_DBEscolarModelStoreContainer">
+          <EntitySet Name="CatalogoBancos" EntityType="Self.CatalogoBancos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatalogoEstados" EntityType="Self.CatalogoEstados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatalogoTipoCuenta" EntityType="Self.CatalogoTipoCuenta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatalogoTipoUsuario" EntityType="Self.CatalogoTipoUsuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DireccionesUsuarios" EntityType="Self.DireccionesUsuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EstadoCuenta" EntityType="Self.EstadoCuenta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FormaPago" EntityType="Self.FormaPago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Institucion" EntityType="Self.Institucion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PreguntaSecreta" EntityType="Self.PreguntaSecreta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DireccionesUsuarios_CatalogoEstados" Association="Self.FK_DireccionesUsuarios_CatalogoEstados">
+            <End Role="CatalogoEstados" EntitySet="CatalogoEstados" />
+            <End Role="DireccionesUsuarios" EntitySet="DireccionesUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DireccionesUsuarios_Usuarios" Association="Self.FK_DireccionesUsuarios_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="DireccionesUsuarios" EntitySet="DireccionesUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EstadoCuenta_Usuarios" Association="Self.FK_EstadoCuenta_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="EstadoCuenta" EntitySet="EstadoCuenta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormaPago_CatalogoBancos" Association="Self.FK_FormaPago_CatalogoBancos">
+            <End Role="CatalogoBancos" EntitySet="CatalogoBancos" />
+            <End Role="FormaPago" EntitySet="FormaPago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormaPago_CatalogoTipoCuenta" Association="Self.FK_FormaPago_CatalogoTipoCuenta">
+            <End Role="CatalogoTipoCuenta" EntitySet="CatalogoTipoCuenta" />
+            <End Role="FormaPago" EntitySet="FormaPago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormaPago_Usuarios" Association="Self.FK_FormaPago_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="FormaPago" EntitySet="FormaPago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Institucion_CatalogoEstados" Association="Self.FK_Institucion_CatalogoEstados">
+            <End Role="CatalogoEstados" EntitySet="CatalogoEstados" />
+            <End Role="Institucion" EntitySet="Institucion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Institucion_Usuarios" Association="Self.FK_Institucion_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Institucion" EntitySet="Institucion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PreguntaSecreta_Usuarios" Association="Self.FK_PreguntaSecreta_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="PreguntaSecreta" EntitySet="PreguntaSecreta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_CatalogoTipoUsuario" Association="Self.FK_Usuarios_CatalogoTipoUsuario">
+            <End Role="CatalogoTipoUsuario" EntitySet="CatalogoTipoUsuario" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_A18E01_DBEscolarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CatalogoBancos">
+          <Key>
+            <PropertyRef Name="Id_Banco" />
+          </Key>
+          <Property Name="Id_Banco" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ban_Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ban_Estatus" Type="Boolean" Nullable="false" />
+          <Property Name="Ban_FechaAlta" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Ban_FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Ban_FechaBaja" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="FormaPago" Relationship="Self.FK_FormaPago_CatalogoBancos" FromRole="CatalogoBancos" ToRole="FormaPago" />
+        </EntityType>
+        <EntityType Name="CatalogoEstados">
+          <Key>
+            <PropertyRef Name="Id_Estado" />
+          </Key>
+          <Property Name="Id_Estado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Est_Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Est_Estatus" Type="Boolean" Nullable="false" />
+          <Property Name="Est_FechaAlta" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Est_FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Est_FechaBaja" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="DireccionesUsuarios" Relationship="Self.FK_DireccionesUsuarios_CatalogoEstados" FromRole="CatalogoEstados" ToRole="DireccionesUsuarios" />
+          <NavigationProperty Name="Institucion" Relationship="Self.FK_Institucion_CatalogoEstados" FromRole="CatalogoEstados" ToRole="Institucion" />
+        </EntityType>
+        <EntityType Name="CatalogoTipoCuenta">
+          <Key>
+            <PropertyRef Name="Id_TipoCuenta" />
+          </Key>
+          <Property Name="Id_TipoCuenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TCue_Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TCue_Estatus" Type="Boolean" Nullable="false" />
+          <Property Name="TCue_FechaAlta" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TCue_FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TCue_FechaBaja" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="FormaPago" Relationship="Self.FK_FormaPago_CatalogoTipoCuenta" FromRole="CatalogoTipoCuenta" ToRole="FormaPago" />
+        </EntityType>
+        <EntityType Name="CatalogoTipoUsuario">
+          <Key>
+            <PropertyRef Name="Id_TipoUsuario" />
+          </Key>
+          <Property Name="Id_TipoUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TUsu_Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TUsu_Clase" Type="Int32" Nullable="false" />
+          <Property Name="TUsu_Estatus" Type="Boolean" Nullable="false" />
+          <Property Name="TUsu_FechaAlta" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TUsu_FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TUsu_FechaBaja" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuarios_CatalogoTipoUsuario" FromRole="CatalogoTipoUsuario" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="DireccionesUsuarios">
+          <Key>
+            <PropertyRef Name="Id_Direccion" />
+          </Key>
+          <Property Name="Id_Direccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dir_Id_Usuario" Type="Int32" Nullable="false" />
+          <Property Name="Dir_Calle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Dir_NumeroInt" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Dir_NumeroExt" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Dir_Colonia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Dir_Delegacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Dir_Municipio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Dir_Id_Estado" Type="Int32" Nullable="false" />
+          <Property Name="Dir_CodigoPostal" Type="Int32" Nullable="false" />
+          <Property Name="Dir_Estatus" Type="Boolean" Nullable="false" />
+          <Property Name="Dir_FechaAlta" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Dir_FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Dir_FechaBaja" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="CatalogoEstados" Relationship="Self.FK_DireccionesUsuarios_CatalogoEstados" FromRole="DireccionesUsuarios" ToRole="CatalogoEstados" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK_DireccionesUsuarios_Usuarios" FromRole="DireccionesUsuarios" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="EstadoCuenta">
+          <Key>
+            <PropertyRef Name="Id_EstadoCuenta" />
+          </Key>
+          <Property Name="Id_EstadoCuenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ECue_Id_Usuario" Type="Int32" Nullable="false" />
+          <Property Name="ECue_MontoFijo" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ECue_MontoMes" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ECue_Adeudo" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ECue_Mes" Type="Int32" Nullable="false" />
+          <Property Name="ECue_Ano" Type="Int32" Nullable="false" />
+          <Property Name="ECue_Estatus" Type="Boolean" Nullable="false" />
+          <Property Name="ECue_FechaAlta" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ECue_FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ECue_FechaBaja" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK_EstadoCuenta_Usuarios" FromRole="EstadoCuenta" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="FormaPago">
+          <Key>
+            <PropertyRef Name="Id_FormaPago" />
+          </Key>
+          <Property Name="Id_FormaPago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FPag_Id_Usuario" Type="Int32" Nullable="false" />
+          <Property Name="FPag_Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FPag_NumeroTarjeta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FPag_NumeroCuenta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FPag_FechaVencimiento" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FPag_Ccv" Type="Int32" Nullable="false" />
+          <Property Name="FPag_Id_Banco" Type="Int32" Nullable="false" />
+          <Property Name="FPag_Id_TipoCuenta" Type="Int32" Nullable="false" />
+          <Property Name="FPag_Estatus" Type="Boolean" Nullable="false" />
+          <Property Name="FPag_FechaAlta" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FPag_FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FPag_FechaBaja" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="CatalogoBancos" Relationship="Self.FK_FormaPago_CatalogoBancos" FromRole="FormaPago" ToRole="CatalogoBancos" />
+          <NavigationProperty Name="CatalogoTipoCuenta" Relationship="Self.FK_FormaPago_CatalogoTipoCuenta" FromRole="FormaPago" ToRole="CatalogoTipoCuenta" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK_FormaPago_Usuarios" FromRole="FormaPago" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Institucion">
+          <Key>
+            <PropertyRef Name="Id_Institucion" />
+          </Key>
+          <Property Name="Id_Institucion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ins_Id_Usuario" Type="Int32" Nullable="false" />
+          <Property Name="Ins_Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ins_Clave" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ins_Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ins_CodigoPostal" Type="Int32" Nullable="false" />
+          <Property Name="Ins_Id_Estado" Type="Int32" Nullable="false" />
+          <Property Name="Ins_UrlLogo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ins_Estatus" Type="Boolean" Nullable="false" />
+          <Property Name="Ins_FechaAlta" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Ins_FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Ins_FechaBaja" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="CatalogoEstados" Relationship="Self.FK_Institucion_CatalogoEstados" FromRole="Institucion" ToRole="CatalogoEstados" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK_Institucion_Usuarios" FromRole="Institucion" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="PreguntaSecreta">
+          <Key>
+            <PropertyRef Name="Id_Pregunta" />
+          </Key>
+          <Property Name="Id_Pregunta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pre_Id_Usuario" Type="Int32" Nullable="false" />
+          <Property Name="Pre_Cuestion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pre_Respuesta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pre_Estatus" Type="Boolean" Nullable="false" />
+          <Property Name="Pre_FechaAlta" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Pre_FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Pre_FechaBaja" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK_PreguntaSecreta_Usuarios" FromRole="PreguntaSecreta" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="Id_Usuario" />
+          </Key>
+          <Property Name="Id_Usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Usu_ClaveUnica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Usu_Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Usu_Curp" Type="String" MaxLength="18" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Usu_Rfc" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Usu_ClaveDocente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Usu_Turno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Usu_CorreoElectronico" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Usu_Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Usu_Clave" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Usu_ConfirmaClave" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Usu_Id_TipoUsuario" Type="Int32" Nullable="false" />
+          <Property Name="Usu_Estatus" Type="Boolean" Nullable="false" />
+          <Property Name="Usu_FechaAlta" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Usu_FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Usu_FechaBaja" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="CatalogoTipoUsuario" Relationship="Self.FK_Usuarios_CatalogoTipoUsuario" FromRole="Usuarios" ToRole="CatalogoTipoUsuario" />
+          <NavigationProperty Name="DireccionesUsuarios" Relationship="Self.FK_DireccionesUsuarios_Usuarios" FromRole="Usuarios" ToRole="DireccionesUsuarios" />
+          <NavigationProperty Name="EstadoCuenta" Relationship="Self.FK_EstadoCuenta_Usuarios" FromRole="Usuarios" ToRole="EstadoCuenta" />
+          <NavigationProperty Name="FormaPago" Relationship="Self.FK_FormaPago_Usuarios" FromRole="Usuarios" ToRole="FormaPago" />
+          <NavigationProperty Name="Institucion" Relationship="Self.FK_Institucion_Usuarios" FromRole="Usuarios" ToRole="Institucion" />
+          <NavigationProperty Name="PreguntaSecreta" Relationship="Self.FK_PreguntaSecreta_Usuarios" FromRole="Usuarios" ToRole="PreguntaSecreta" />
+        </EntityType>
+        <Association Name="FK_FormaPago_CatalogoBancos">
+          <End Role="CatalogoBancos" Type="Self.CatalogoBancos" Multiplicity="1" />
+          <End Role="FormaPago" Type="Self.FormaPago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatalogoBancos">
+              <PropertyRef Name="Id_Banco" />
+            </Principal>
+            <Dependent Role="FormaPago">
+              <PropertyRef Name="FPag_Id_Banco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DireccionesUsuarios_CatalogoEstados">
+          <End Role="CatalogoEstados" Type="Self.CatalogoEstados" Multiplicity="1" />
+          <End Role="DireccionesUsuarios" Type="Self.DireccionesUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatalogoEstados">
+              <PropertyRef Name="Id_Estado" />
+            </Principal>
+            <Dependent Role="DireccionesUsuarios">
+              <PropertyRef Name="Dir_Id_Estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Institucion_CatalogoEstados">
+          <End Role="CatalogoEstados" Type="Self.CatalogoEstados" Multiplicity="1" />
+          <End Role="Institucion" Type="Self.Institucion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatalogoEstados">
+              <PropertyRef Name="Id_Estado" />
+            </Principal>
+            <Dependent Role="Institucion">
+              <PropertyRef Name="Ins_Id_Estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormaPago_CatalogoTipoCuenta">
+          <End Role="CatalogoTipoCuenta" Type="Self.CatalogoTipoCuenta" Multiplicity="1" />
+          <End Role="FormaPago" Type="Self.FormaPago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatalogoTipoCuenta">
+              <PropertyRef Name="Id_TipoCuenta" />
+            </Principal>
+            <Dependent Role="FormaPago">
+              <PropertyRef Name="FPag_Id_TipoCuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuarios_CatalogoTipoUsuario">
+          <End Role="CatalogoTipoUsuario" Type="Self.CatalogoTipoUsuario" Multiplicity="1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatalogoTipoUsuario">
+              <PropertyRef Name="Id_TipoUsuario" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="Usu_Id_TipoUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DireccionesUsuarios_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="DireccionesUsuarios" Type="Self.DireccionesUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Id_Usuario" />
+            </Principal>
+            <Dependent Role="DireccionesUsuarios">
+              <PropertyRef Name="Dir_Id_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EstadoCuenta_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="EstadoCuenta" Type="Self.EstadoCuenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Id_Usuario" />
+            </Principal>
+            <Dependent Role="EstadoCuenta">
+              <PropertyRef Name="ECue_Id_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormaPago_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="FormaPago" Type="Self.FormaPago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Id_Usuario" />
+            </Principal>
+            <Dependent Role="FormaPago">
+              <PropertyRef Name="FPag_Id_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Institucion_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="Institucion" Type="Self.Institucion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Id_Usuario" />
+            </Principal>
+            <Dependent Role="Institucion">
+              <PropertyRef Name="Ins_Id_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PreguntaSecreta_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="PreguntaSecreta" Type="Self.PreguntaSecreta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Id_Usuario" />
+            </Principal>
+            <Dependent Role="PreguntaSecreta">
+              <PropertyRef Name="Pre_Id_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_A18E01_DBEscolarEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CatalogoBancos" EntityType="Self.CatalogoBancos" />
+          <EntitySet Name="CatalogoEstados" EntityType="Self.CatalogoEstados" />
+          <EntitySet Name="CatalogoTipoCuenta" EntityType="Self.CatalogoTipoCuenta" />
+          <EntitySet Name="CatalogoTipoUsuario" EntityType="Self.CatalogoTipoUsuario" />
+          <EntitySet Name="DireccionesUsuarios" EntityType="Self.DireccionesUsuarios" />
+          <EntitySet Name="EstadoCuenta" EntityType="Self.EstadoCuenta" />
+          <EntitySet Name="FormaPago" EntityType="Self.FormaPago" />
+          <EntitySet Name="Institucion" EntityType="Self.Institucion" />
+          <EntitySet Name="PreguntaSecreta" EntityType="Self.PreguntaSecreta" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+          <AssociationSet Name="FK_FormaPago_CatalogoBancos" Association="Self.FK_FormaPago_CatalogoBancos">
+            <End Role="CatalogoBancos" EntitySet="CatalogoBancos" />
+            <End Role="FormaPago" EntitySet="FormaPago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DireccionesUsuarios_CatalogoEstados" Association="Self.FK_DireccionesUsuarios_CatalogoEstados">
+            <End Role="CatalogoEstados" EntitySet="CatalogoEstados" />
+            <End Role="DireccionesUsuarios" EntitySet="DireccionesUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Institucion_CatalogoEstados" Association="Self.FK_Institucion_CatalogoEstados">
+            <End Role="CatalogoEstados" EntitySet="CatalogoEstados" />
+            <End Role="Institucion" EntitySet="Institucion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormaPago_CatalogoTipoCuenta" Association="Self.FK_FormaPago_CatalogoTipoCuenta">
+            <End Role="CatalogoTipoCuenta" EntitySet="CatalogoTipoCuenta" />
+            <End Role="FormaPago" EntitySet="FormaPago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_CatalogoTipoUsuario" Association="Self.FK_Usuarios_CatalogoTipoUsuario">
+            <End Role="CatalogoTipoUsuario" EntitySet="CatalogoTipoUsuario" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DireccionesUsuarios_Usuarios" Association="Self.FK_DireccionesUsuarios_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="DireccionesUsuarios" EntitySet="DireccionesUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EstadoCuenta_Usuarios" Association="Self.FK_EstadoCuenta_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="EstadoCuenta" EntitySet="EstadoCuenta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormaPago_Usuarios" Association="Self.FK_FormaPago_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="FormaPago" EntitySet="FormaPago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Institucion_Usuarios" Association="Self.FK_Institucion_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Institucion" EntitySet="Institucion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PreguntaSecreta_Usuarios" Association="Self.FK_PreguntaSecreta_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="PreguntaSecreta" EntitySet="PreguntaSecreta" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_A18E01_DBEscolarModelStoreContainer" CdmEntityContainer="DB_A18E01_DBEscolarEntities">
+          <EntitySetMapping Name="CatalogoBancos">
+            <EntityTypeMapping TypeName="DB_A18E01_DBEscolarModel.CatalogoBancos">
+              <MappingFragment StoreEntitySet="CatalogoBancos">
+                <ScalarProperty Name="Id_Banco" ColumnName="Id_Banco" />
+                <ScalarProperty Name="Ban_Nombre" ColumnName="Ban_Nombre" />
+                <ScalarProperty Name="Ban_Estatus" ColumnName="Ban_Estatus" />
+                <ScalarProperty Name="Ban_FechaAlta" ColumnName="Ban_FechaAlta" />
+                <ScalarProperty Name="Ban_FechaModificacion" ColumnName="Ban_FechaModificacion" />
+                <ScalarProperty Name="Ban_FechaBaja" ColumnName="Ban_FechaBaja" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatalogoEstados">
+            <EntityTypeMapping TypeName="DB_A18E01_DBEscolarModel.CatalogoEstados">
+              <MappingFragment StoreEntitySet="CatalogoEstados">
+                <ScalarProperty Name="Id_Estado" ColumnName="Id_Estado" />
+                <ScalarProperty Name="Est_Nombre" ColumnName="Est_Nombre" />
+                <ScalarProperty Name="Est_Estatus" ColumnName="Est_Estatus" />
+                <ScalarProperty Name="Est_FechaAlta" ColumnName="Est_FechaAlta" />
+                <ScalarProperty Name="Est_FechaModificacion" ColumnName="Est_FechaModificacion" />
+                <ScalarProperty Name="Est_FechaBaja" ColumnName="Est_FechaBaja" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatalogoTipoCuenta">
+            <EntityTypeMapping TypeName="DB_A18E01_DBEscolarModel.CatalogoTipoCuenta">
+              <MappingFragment StoreEntitySet="CatalogoTipoCuenta">
+                <ScalarProperty Name="Id_TipoCuenta" ColumnName="Id_TipoCuenta" />
+                <ScalarProperty Name="TCue_Nombre" ColumnName="TCue_Nombre" />
+                <ScalarProperty Name="TCue_Estatus" ColumnName="TCue_Estatus" />
+                <ScalarProperty Name="TCue_FechaAlta" ColumnName="TCue_FechaAlta" />
+                <ScalarProperty Name="TCue_FechaModificacion" ColumnName="TCue_FechaModificacion" />
+                <ScalarProperty Name="TCue_FechaBaja" ColumnName="TCue_FechaBaja" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatalogoTipoUsuario">
+            <EntityTypeMapping TypeName="DB_A18E01_DBEscolarModel.CatalogoTipoUsuario">
+              <MappingFragment StoreEntitySet="CatalogoTipoUsuario">
+                <ScalarProperty Name="Id_TipoUsuario" ColumnName="Id_TipoUsuario" />
+                <ScalarProperty Name="TUsu_Nombre" ColumnName="TUsu_Nombre" />
+                <ScalarProperty Name="TUsu_Clase" ColumnName="TUsu_Clase" />
+                <ScalarProperty Name="TUsu_Estatus" ColumnName="TUsu_Estatus" />
+                <ScalarProperty Name="TUsu_FechaAlta" ColumnName="TUsu_FechaAlta" />
+                <ScalarProperty Name="TUsu_FechaModificacion" ColumnName="TUsu_FechaModificacion" />
+                <ScalarProperty Name="TUsu_FechaBaja" ColumnName="TUsu_FechaBaja" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DireccionesUsuarios">
+            <EntityTypeMapping TypeName="DB_A18E01_DBEscolarModel.DireccionesUsuarios">
+              <MappingFragment StoreEntitySet="DireccionesUsuarios">
+                <ScalarProperty Name="Id_Direccion" ColumnName="Id_Direccion" />
+                <ScalarProperty Name="Dir_Id_Usuario" ColumnName="Dir_Id_Usuario" />
+                <ScalarProperty Name="Dir_Calle" ColumnName="Dir_Calle" />
+                <ScalarProperty Name="Dir_NumeroInt" ColumnName="Dir_NumeroInt" />
+                <ScalarProperty Name="Dir_NumeroExt" ColumnName="Dir_NumeroExt" />
+                <ScalarProperty Name="Dir_Colonia" ColumnName="Dir_Colonia" />
+                <ScalarProperty Name="Dir_Delegacion" ColumnName="Dir_Delegacion" />
+                <ScalarProperty Name="Dir_Municipio" ColumnName="Dir_Municipio" />
+                <ScalarProperty Name="Dir_Id_Estado" ColumnName="Dir_Id_Estado" />
+                <ScalarProperty Name="Dir_CodigoPostal" ColumnName="Dir_CodigoPostal" />
+                <ScalarProperty Name="Dir_Estatus" ColumnName="Dir_Estatus" />
+                <ScalarProperty Name="Dir_FechaAlta" ColumnName="Dir_FechaAlta" />
+                <ScalarProperty Name="Dir_FechaModificacion" ColumnName="Dir_FechaModificacion" />
+                <ScalarProperty Name="Dir_FechaBaja" ColumnName="Dir_FechaBaja" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EstadoCuenta">
+            <EntityTypeMapping TypeName="DB_A18E01_DBEscolarModel.EstadoCuenta">
+              <MappingFragment StoreEntitySet="EstadoCuenta">
+                <ScalarProperty Name="Id_EstadoCuenta" ColumnName="Id_EstadoCuenta" />
+                <ScalarProperty Name="ECue_Id_Usuario" ColumnName="ECue_Id_Usuario" />
+                <ScalarProperty Name="ECue_MontoFijo" ColumnName="ECue_MontoFijo" />
+                <ScalarProperty Name="ECue_MontoMes" ColumnName="ECue_MontoMes" />
+                <ScalarProperty Name="ECue_Adeudo" ColumnName="ECue_Adeudo" />
+                <ScalarProperty Name="ECue_Mes" ColumnName="ECue_Mes" />
+                <ScalarProperty Name="ECue_Ano" ColumnName="ECue_Ano" />
+                <ScalarProperty Name="ECue_Estatus" ColumnName="ECue_Estatus" />
+                <ScalarProperty Name="ECue_FechaAlta" ColumnName="ECue_FechaAlta" />
+                <ScalarProperty Name="ECue_FechaModificacion" ColumnName="ECue_FechaModificacion" />
+                <ScalarProperty Name="ECue_FechaBaja" ColumnName="ECue_FechaBaja" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FormaPago">
+            <EntityTypeMapping TypeName="DB_A18E01_DBEscolarModel.FormaPago">
+              <MappingFragment StoreEntitySet="FormaPago">
+                <ScalarProperty Name="Id_FormaPago" ColumnName="Id_FormaPago" />
+                <ScalarProperty Name="FPag_Id_Usuario" ColumnName="FPag_Id_Usuario" />
+                <ScalarProperty Name="FPag_Nombre" ColumnName="FPag_Nombre" />
+                <ScalarProperty Name="FPag_NumeroTarjeta" ColumnName="FPag_NumeroTarjeta" />
+                <ScalarProperty Name="FPag_NumeroCuenta" ColumnName="FPag_NumeroCuenta" />
+                <ScalarProperty Name="FPag_FechaVencimiento" ColumnName="FPag_FechaVencimiento" />
+                <ScalarProperty Name="FPag_Ccv" ColumnName="FPag_Ccv" />
+                <ScalarProperty Name="FPag_Id_Banco" ColumnName="FPag_Id_Banco" />
+                <ScalarProperty Name="FPag_Id_TipoCuenta" ColumnName="FPag_Id_TipoCuenta" />
+                <ScalarProperty Name="FPag_Estatus" ColumnName="FPag_Estatus" />
+                <ScalarProperty Name="FPag_FechaAlta" ColumnName="FPag_FechaAlta" />
+                <ScalarProperty Name="FPag_FechaModificacion" ColumnName="FPag_FechaModificacion" />
+                <ScalarProperty Name="FPag_FechaBaja" ColumnName="FPag_FechaBaja" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Institucion">
+            <EntityTypeMapping TypeName="DB_A18E01_DBEscolarModel.Institucion">
+              <MappingFragment StoreEntitySet="Institucion">
+                <ScalarProperty Name="Id_Institucion" ColumnName="Id_Institucion" />
+                <ScalarProperty Name="Ins_Id_Usuario" ColumnName="Ins_Id_Usuario" />
+                <ScalarProperty Name="Ins_Nombre" ColumnName="Ins_Nombre" />
+                <ScalarProperty Name="Ins_Clave" ColumnName="Ins_Clave" />
+                <ScalarProperty Name="Ins_Direccion" ColumnName="Ins_Direccion" />
+                <ScalarProperty Name="Ins_CodigoPostal" ColumnName="Ins_CodigoPostal" />
+                <ScalarProperty Name="Ins_Id_Estado" ColumnName="Ins_Id_Estado" />
+                <ScalarProperty Name="Ins_UrlLogo" ColumnName="Ins_UrlLogo" />
+                <ScalarProperty Name="Ins_Estatus" ColumnName="Ins_Estatus" />
+                <ScalarProperty Name="Ins_FechaAlta" ColumnName="Ins_FechaAlta" />
+                <ScalarProperty Name="Ins_FechaModificacion" ColumnName="Ins_FechaModificacion" />
+                <ScalarProperty Name="Ins_FechaBaja" ColumnName="Ins_FechaBaja" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PreguntaSecreta">
+            <EntityTypeMapping TypeName="DB_A18E01_DBEscolarModel.PreguntaSecreta">
+              <MappingFragment StoreEntitySet="PreguntaSecreta">
+                <ScalarProperty Name="Id_Pregunta" ColumnName="Id_Pregunta" />
+                <ScalarProperty Name="Pre_Id_Usuario" ColumnName="Pre_Id_Usuario" />
+                <ScalarProperty Name="Pre_Cuestion" ColumnName="Pre_Cuestion" />
+                <ScalarProperty Name="Pre_Respuesta" ColumnName="Pre_Respuesta" />
+                <ScalarProperty Name="Pre_Estatus" ColumnName="Pre_Estatus" />
+                <ScalarProperty Name="Pre_FechaAlta" ColumnName="Pre_FechaAlta" />
+                <ScalarProperty Name="Pre_FechaModificacion" ColumnName="Pre_FechaModificacion" />
+                <ScalarProperty Name="Pre_FechaBaja" ColumnName="Pre_FechaBaja" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DB_A18E01_DBEscolarModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="DB_A18E01_DBEscolarModel.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+                <ScalarProperty Name="Usu_ClaveUnica" ColumnName="Usu_ClaveUnica" />
+                <ScalarProperty Name="Usu_Nombre" ColumnName="Usu_Nombre" />
+                <ScalarProperty Name="Usu_Curp" ColumnName="Usu_Curp" />
+                <ScalarProperty Name="Usu_Rfc" ColumnName="Usu_Rfc" />
+                <ScalarProperty Name="Usu_ClaveDocente" ColumnName="Usu_ClaveDocente" />
+                <ScalarProperty Name="Usu_Turno" ColumnName="Usu_Turno" />
+                <ScalarProperty Name="Usu_CorreoElectronico" ColumnName="Usu_CorreoElectronico" />
+                <ScalarProperty Name="Usu_Usuario" ColumnName="Usu_Usuario" />
+                <ScalarProperty Name="Usu_Clave" ColumnName="Usu_Clave" />
+                <ScalarProperty Name="Usu_ConfirmaClave" ColumnName="Usu_ConfirmaClave" />
+                <ScalarProperty Name="Usu_Id_TipoUsuario" ColumnName="Usu_Id_TipoUsuario" />
+                <ScalarProperty Name="Usu_Estatus" ColumnName="Usu_Estatus" />
+                <ScalarProperty Name="Usu_FechaAlta" ColumnName="Usu_FechaAlta" />
+                <ScalarProperty Name="Usu_FechaModificacion" ColumnName="Usu_FechaModificacion" />
+                <ScalarProperty Name="Usu_FechaBaja" ColumnName="Usu_FechaBaja" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
