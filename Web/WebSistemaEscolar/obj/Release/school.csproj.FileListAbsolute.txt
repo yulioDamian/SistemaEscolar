@@ -1,6 +1,0 @@
-C:\Users\desarrollo\Google Drive\school\bin\SCHOOL.dll.config
-C:\Users\desarrollo\Google Drive\school\bin\SCHOOL.dll
-C:\Users\desarrollo\Google Drive\school\bin\SCHOOL.pdb
-C:\Users\desarrollo\Google Drive\school\obj\Release\school.csprojResolveAssemblyReference.cache
-C:\Users\desarrollo\Google Drive\school\obj\Release\SCHOOL.dll
-C:\Users\desarrollo\Google Drive\school\obj\Release\SCHOOL.pdb
