@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSistemaEscolar", "Web\WebSistemaEscolar\WebSistemaEscolar.csproj", "{58840E2F-F6BC-4408-9B13-18F3C8BD684A}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{E302EA97-6EB9-4726-A2B9-C648FDAAAA36}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{14655427-2600-4A63-8E92-1D741E2C31D3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaEscolarApi", "Api\SistemaEscolarApi\SistemaEscolarApi.csproj", "{80503715-A625-4370-BB00-4F17D2A1E41C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaEscolarWeb", "Web\SistemaEscolarWeb\SistemaEscolarWeb.csproj", "{F8ED6534-F29F-46D0-BC8B-EAD0634BCE3A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,20 +17,20 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{58840E2F-F6BC-4408-9B13-18F3C8BD684A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{58840E2F-F6BC-4408-9B13-18F3C8BD684A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{58840E2F-F6BC-4408-9B13-18F3C8BD684A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{58840E2F-F6BC-4408-9B13-18F3C8BD684A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{80503715-A625-4370-BB00-4F17D2A1E41C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{80503715-A625-4370-BB00-4F17D2A1E41C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80503715-A625-4370-BB00-4F17D2A1E41C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80503715-A625-4370-BB00-4F17D2A1E41C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8ED6534-F29F-46D0-BC8B-EAD0634BCE3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8ED6534-F29F-46D0-BC8B-EAD0634BCE3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8ED6534-F29F-46D0-BC8B-EAD0634BCE3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8ED6534-F29F-46D0-BC8B-EAD0634BCE3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{58840E2F-F6BC-4408-9B13-18F3C8BD684A} = {14655427-2600-4A63-8E92-1D741E2C31D3}
 		{80503715-A625-4370-BB00-4F17D2A1E41C} = {E302EA97-6EB9-4726-A2B9-C648FDAAAA36}
+		{F8ED6534-F29F-46D0-BC8B-EAD0634BCE3A} = {14655427-2600-4A63-8E92-1D741E2C31D3}
 	EndGlobalSection
 EndGlobal
