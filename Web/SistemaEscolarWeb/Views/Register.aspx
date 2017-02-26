@@ -2,22 +2,15 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="RegisterApp">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>   
    <link href="../Content/css/bootstrap.min.css" rel="stylesheet" />
-   
-     <!-- getmdl -->
-   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
-   <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.indigo-pink.min.css"/>
-   <script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>   
-    <!--getmdl-select-->   
-   <link rel="stylesheet" href="https://cdn.rawgit.com/CreativeIT/getmdl-select/master/getmdl-select.min.css"/>
-   <script  src="https://cdn.rawgit.com/CreativeIT/getmdl-select/master/getmdl-select.min.js"></script>
     <link href="../Content/css/Register-Style.css" rel="stylesheet" />
+    <link href="../Content/css/select.css" rel="stylesheet" />
    <title>Registro</title>
 </head>
-<body>
+<body ng-controller="RegisterController">
 
     <hgroup>
         <h1>Registro</h1>
@@ -39,177 +32,180 @@
                         <div class="tab-content">
                             <div class="tab-pane fade in active" id="DataUser">
                                 <form class="form-inline">
-                                        <div class="form-group">
-                                            <div class="group">
-                                                <input class="Minput" type="email" name="UserEmail" ng-model="user.email"/><span class="highlight"></span><span class="bar"></span>
-                                                <label class="Mlabel">Nombre</label>
+                                    <div class="row">
+                                        <div class="col-sx-12 col-sm-6 col-md-4">
+                                            <div class="form-group">
+                                                <input type="email" required="required"/>
+                                                <label for="input" class="input-label">Nombre</label><i class="bar"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-sx-12 col-sm-6 col-md-4">
+                                            <div class="form-group">
+                                                <input type="text" required="required"/>
+                                                <label for="input" class="input-label">Curp</label><i class="bar"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-sx-12 col-sm-6 col-md-4">
+                                             <div class="form-group">
+                                                 <input type="text" required="required"/>
+                                                 <label for="input" class="input-label">RFC</label><i class="bar"></i>
                                              </div>
                                         </div>
-                                        
-                                        <div class="form-group">
-                                            <div class="group">
-                                                <input class="Minput" type="email" name="UserEmail" ng-model="user.email"/><span class="highlight"></span><span class="bar"></span>
-                                                <label class="Mlabel">Curp</label>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="form-group">
-                                            <div class="group">
-                                                <input class="Minput" type="email" name="UserEmail" ng-model="user.email"/><span class="highlight"></span><span class="bar"></span>
-                                                <label class="Mlabel">Rfc</label>
-                                            </div>
-                                        </div>
-                                         <div class="form-group">
-                                            <div class="group">
-                                                <input class="Minput" type="email" name="UserEmail" ng-model="user.email"/><span class="highlight"></span><span class="bar"></span>
-                                                <label class="Mlabel">Clave docente</label>
+                                    </div>
+                                    
+                                    <div class="row">
+                                         <div class="col-sx-12 col-sm-6 col-md-4">
+                                             <div class="form-group">
+                                                 <input type="text" required="required"/>
+                                                 <label for="input" class="input-label">Clave Docente</label><i class="bar"></i>
                                              </div>
                                         </div>
-                                        
-                                        <div class="form-group">
-                                            <div class="group">
-                                                <input class="Minput" type="email" name="UserEmail" ng-model="user.email"/><span class="highlight"></span><span class="bar"></span>
-                                                <label class="Mlabel">Turno</label>
+                                         <div class="col-sx-12 col-sm-6 col-md-4">
+                                            <div class="form-group">
+                                                <input type="text" required="required"/>
+                                                <label for="input" class="input-label">Turno</label><i class="bar"></i>
                                             </div>
                                         </div>
-                                        
-                                        <div class="form-group">
-                                            <div class="group">
-                                                <input class="Minput" type="email" name="UserEmail" ng-model="user.email"/><span class="highlight"></span><span class="bar"></span>
-                                                <label class="Mlabel">Correo Electronico</label>
-                                            </div>
+                                         <div class="col-sx-12 col-sm-6 col-md-4">
+                                             <div class="form-group">
+                                                  <input type="text" required="required"/>
+                                                  <label for="input" class="input-label">Correo Electronico</label><i class="bar"></i>
+                                              </div>
                                         </div>
-
-                                         <div class="form-group">
-                                            <div class="group">
-                                                <input class="Minput" type="email" name="UserEmail" ng-model="user.email"/><span class="highlight"></span><span class="bar"></span>
-                                                <label class="Mlabel">Usuario</label>
-                                             </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sx-12 col-sm-6 col-md-4">
+                                              <div class="form-group">
+                                                  <input type="text" required="required"/>
+                                                  <label for="input" class="input-label">Usuario</label><i class="bar"></i>
+                                              </div>
                                         </div>
-                                        
-                                        <div class="form-group">
-                                            <div class="group">
-                                                <input class="Minput" type="email" name="UserEmail" ng-model="user.email"/><span class="highlight"></span><span class="bar"></span>
-                                                <label class="Mlabel">Contraseña</label>
-                                            </div>
+                                        <div class="col-sx-12 col-sm-6 col-md-4">
+                                              <div class="form-group">
+                                                  <input type="text" required="required"/>
+                                                  <label for="input" class="input-label">Contraseña</label><i class="bar"></i>
+                                              </div>
                                         </div>
-                                        
-                                        <div class="form-group">
-                                            <div class="group">
-                                                <input class="Minput" type="email" name="UserEmail" ng-model="user.email"/><span class="highlight"></span><span class="bar"></span>
-                                                <label class="Mlabel">Confirmar Contraseña</label>
-                                            </div>
+                                        <div class="col-sx-12 col-sm-6 col-md-4">
+                                             <div class="form-group">
+                                                  <input type="password" required="required"/>
+                                                  <label for="input" class="input-label">Confirmar Contraseña</label><i class="bar"></i>
+                                              </div>
                                         </div>
-
+                                    </div>
+                                    
                                 </form>
                             </div>
                             <div class="tab-pane fade" id="DataDireccion">
                                 <form class="form-inline">
-                                       <div class="form-group">
-                                         <!-- Simple Select -->
-                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fullwidth" style="padding-top:inherit;">
-                                            <input class="mdl-textfield__input" type="text" id="EstadosDire" value="Belarus" readonly tabIndex="-1"/>
-                                            <label for="EstadosDire" class="mdl-textfield__label" style="top:-12px;">Estado</label>
-                                            <ul for="EstadosDire" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                                                <li class="mdl-menu__item">Germany</li>
-                                            </ul>
+                                    <div class="row">
+                                         <div class="col-sx-12 col-sm-6 col-md-4">
+                                           <div class="form-group">
+                                              <select required>
+                                                 <option value="" >Seleccione</option>
+                                                 <option ng-repeat="est in estados" value="{{est.IdEstado}}">{{est.Nombre}}</option>
+                                              </select>
+                                              <label for="select" class="input-label">Seleccione un Estado</label><i class="bar"></i>
+                                           </div>
+                                        </div>
+                                        
+                                        <div class="col-sx-12 col-sm-6 col-md-4">
+                                            <div class="form-group">
+                                                <input type="password" required="required"/>
+                                                <label for="input" class="input-label">Municipio</label><i class="bar"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-sx-12 col-sm-6 col-md-4">
+                                            <div class="form-group">
+                                                <input type="password" required="required"/>
+                                                <label for="input" class="input-label">Delegación</label><i class="bar"></i>
+                                            </div>
                                         </div>
                                     </div>
 
-                                        
-                                    <div class="form-group">
-                                        <div class="group">
-                                            <input class="Minput" type="email" name="UserEmail" ng-model="user.email"/><span class="highlight"></span><span class="bar"></span>
-                                            <label class="Mlabel">Municipio</label>
-                                        </div>
-                                    </div>
-                                        
-                                    <div class="form-group">
-                                        <div class="group">
-                                            <input class="Minput" type="email" name="UserEmail" ng-model="user.email"/><span class="highlight"></span><span class="bar"></span>
-                                            <label class="Mlabel">Delegación</label>
-                                        </div>
-                                    </div>
-                                        <div class="form-group">
-                                        <div class="group">
-                                            <input class="Minput" type="email" name="UserEmail" ng-model="user.email"/><span class="highlight"></span><span class="bar"></span>
-                                            <label class="Mlabel">Colonia</label>
+                                    <div class="row">
+                                        <div class="col-sx-12 col-sm-6 col-md-4">
+                                            <div class="form-group">
+                                                <input type="password" required="required"/>
+                                                <label for="input" class="input-label">Colonia</label><i class="bar"></i>
                                             </div>
-                                    </div>
-                                        
-                                    <div class="form-group">
-                                        <div class="group">
-                                            <input class="Minput" type="email" name="UserEmail" ng-model="user.email"/><span class="highlight"></span><span class="bar"></span>
-                                            <label class="Mlabel">Calle</label>
                                         </div>
-                                    </div>
-                                        
-                                    <div class="form-group">
-                                        <div class="group">
-                                            <input class="Minput" type="email" name="UserEmail" ng-model="user.email"/><span class="highlight"></span><span class="bar"></span>
-                                            <label class="Mlabel">Numero Exterior</label>
-                                        </div>
-                                    </div>
-
-                                        <div class="form-group">
-                                        <div class="group">
-                                            <input class="Minput" type="email" name="UserEmail" ng-model="user.email"/><span class="highlight"></span><span class="bar"></span>
-                                            <label class="Mlabel">Numero Interior</label>
+                                        <div class="col-sx-12 col-sm-6 col-md-4">
+                                            <div class="form-group">
+                                                <input type="password" required="required"/>
+                                                <label for="input" class="input-label">Calle</label><i class="bar"></i>
                                             </div>
+                                        </div>
+                                         <div class="col-sx-12 col-sm-6 col-md-4">
+                                            <div class="form-group">
+                                                <input type="password" required="required"/>
+                                                <label for="input" class="input-label">Numero Exterior</label><i class="bar"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-sx-12 col-sm-6 col-md-4">
+                                            <div class="form-group">
+                                                <input type="password" required="required"/>
+                                                <label for="input" class="input-label">Codigo Postal</label><i class="bar"></i>
+                                            </div>
+                                        </div>
+                                        
                                     </div>
 
                                 </form>
                             </div>
                             <div class="tab-pane fade" id="DataInstitucion">
                                 <form class="form-inline">
-                                    <div class="form-group">
-                                         <!-- Simple Select -->
-                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fullwidth" style="padding-top:inherit;">
-                                            <input class="mdl-textfield__input" type="text" id="EstadosInst" value="Belarus" readonly tabIndex="-1"/>
-                                            <label for="EstadosInst" class="mdl-textfield__label" style="top:-12px;">Estado</label>
-                                            <ul for="EstadosInst" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                                                <li class="mdl-menu__item">Germany</li>
-                                                <li class="mdl-menu__item">Belarus</li>
-                                                <li class="mdl-menu__item">Russia</li>
-                                            </ul>
+                                    <div class="row">
+                                        <div class="col-sx-12 col-sm-6 col-md-4">
+                                           <div class="form-group">
+                                              <select required>
+                                                 <option value="" >Seleccione</option>
+                                                 <option ng-repeat="est in estados" value="{{est.IdEstado}}">{{est.Nombre}}</option>
+                                              </select>
+                                              <label for="select" class="input-label">Seleccione un Estado</label><i class="bar"></i>
+                                           </div>
                                         </div>
-                                    </div>
-
-                                        
-                                    <div class="form-group">
-                                        <div class="group">
-                                            <input class="Minput" type="email" name="UserEmail" ng-model="user.email"/><span class="highlight"></span><span class="bar"></span>
-                                            <label class="Mlabel">Dirección</label>
-                                        </div>
-                                    </div>
-                                        
-                                    <div class="form-group">
-                                        <div class="group">
-                                            <input class="Minput" type="email" name="UserEmail" ng-model="user.email"/><span class="highlight"></span><span class="bar"></span>
-                                            <label class="Mlabel">Codigo Postal</label>
-                                        </div>
-                                    </div>
-                                        <div class="form-group">
-                                        <div class="group">
-                                            <input class="Minput" type="email" name="UserEmail" ng-model="user.email"/><span class="highlight"></span><span class="bar"></span>
-                                            <label class="Mlabel">Nombre</label>
+                                        <div class="col-sx-12 col-sm-6 col-md-4">
+                                            <div class="form-group">
+                                                <input type="password" required="required"/>
+                                                <label for="input" class="input-label">Dirección</label><i class="bar"></i>
                                             </div>
-                                    </div>
-                                        
-                                    <div class="form-group">
-                                        <div class="group">
-                                            <input class="Minput" type="email" name="UserEmail" ng-model="user.email"/><span class="highlight"></span><span class="bar"></span>
-                                            <label class="Mlabel">Clave</label>
                                         </div>
-                                    </div>
-                                        
-                                    <div class="form-group">
-                                        <div class="group">
-                                            <input class="Minput" type="email" name="UserEmail" ng-model="user.email"/><span class="highlight"></span><span class="bar"></span>
-                                            <label class="Mlabel">Logo</label>
+                                        <div class="col-sx-12 col-sm-6 col-md-4">
+                                             <div class="form-group">
+                                                 <input type="password" required="required"/>
+                                                 <label for="input" class="input-label">Codigo Postal</label><i class="bar"></i>
+                                             </div>
                                         </div>
                                     </div>
 
+                                    <div class="row">
+                                        <div class="col-sx-12 col-sm-6 col-md-4">
+                                             <div class="form-group">    
+                                                 <input type="password" required="required"/>
+                                                 <label for="input" class="input-label">Nombre</label><i class="bar"></i>
+                                             </div>
+                                        </div>
+                                        <div class="col-sx-12 col-sm-6 col-md-4">
+                                             <div class="form-group">
+                                                 <input type="password" required="required"/>
+                                                 <label for="input" class="input-label">Clave</label><i class="bar"></i>
+                                             </div>
+                                        </div>
+                                        <div class="col-sx-12 col-sm-6 col-md-4">
+                                              <div class="form-group">
+                                                  <input type="password" required="required"/>
+                                                  <label for="input" class="input-label">Logo</label><i class="bar"></i>
+                                              </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="button-container">
+                                          <button type="submit" class="button"><span>Registrar</span></button>
+                                        </div>
+                                    </div>
+                                    
                                 </form>
                             </div>
                         </div>
