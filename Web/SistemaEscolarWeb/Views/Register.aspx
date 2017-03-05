@@ -92,6 +92,12 @@
                                               </div>
                                         </div>
                                     </div>
+
+                                     <div class="row">
+                                        <div class="button-container">
+                                          <button type="submit" class="button" ><span>Guardar</span></button>
+                                        </div>
+                                    </div>
                                     
                                 </form>
                             </div>
@@ -107,7 +113,6 @@
                                               <label for="select" class="input-label">Seleccione un Estado</label><i class="bar"></i>
                                            </div>
                                         </div>
-                                        
                                         <div class="col-sx-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <input type="text" required="required" ng-model="userDir.Municipio"/>
@@ -154,6 +159,12 @@
                                             </div>
                                         </div>
                                         
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="button-container">
+                                          <button type="submit" class="button" ><span>Guardar</span></button>
+                                        </div>
                                     </div>
 
                                 </form>
@@ -206,7 +217,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="button-container">
-                                          <button type="submit" class="button"><span>Registrar</span></button>
+                                          <button type="submit" class="button" ng-click="Register()"><span>Registrar</span></button>
                                         </div>
                                     </div>
                                     
@@ -219,7 +230,16 @@
 	    </div>
     </div>
 
+      <div bn-modals ng-show="subview" class="m-modals" ng-switch="subview">
+        <div ng-switch-when="alert" ng-controller="AlertModalController" class="modal">
+            <p>{{msg}}</p>
+            <p>
+                <a ng-click="close()">Aceptar</a>
+            </p>
+        </div>
+    </div>
 
+ </body>
     <script src="../Content/js/angular.min.js"></script>
     <script src="../Content/js/angular-aria.min.js"></script>
     <script src="../Content/js/angular-animate.js"></script>
@@ -231,6 +251,8 @@
     <script src="../Content/js/Register-Style.js"></script>
     <script src="../Content/js/angular-only-number.js"></script>
     <script src="../Content/js/angular-max-length.js"></script>
+    <script src="../Content/js/angular-modal-Dialog.js"></script>
+    <script src="../Content/js/angular-modal.js"></script>
     <script src="../Content/js/Register.js"></script>
     <script>
 	$("#file-3").fileinput({
@@ -239,5 +261,5 @@
 		fileType: "any"
 	});
 	</script>
-    </body>
+   
 </html>

@@ -31,7 +31,7 @@
     </form>
     <br />
     <footer><a href="#" target="_blank"><img src="http://www.excitetemplate.com/images/logo-designer-pune/software-company-logo.png"></a>
-        <p>¿No estas Registrado? <a href="Views/Register.aspx" target="_blank">Registrarme</a></p>
+        <p>¿No estas Registrado? <a href="Views/Register.aspx">Registrarme</a></p>
     </footer>
 
     <div bn-modals ng-show="subview" class="m-modals" ng-switch="subview">

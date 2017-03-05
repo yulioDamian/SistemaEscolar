@@ -1,9 +1,11 @@
-﻿var app = angular.module('RegisterApp', ['ngAria', 'ngMaterial', 'angular-only-number', 'angular-max-length']);
-app.controller('RegisterController', function ($scope, $http) {
+﻿var app = angular.module('RegisterApp', ['ngAria', 'ngMaterial', 'angular-only-number', 'angular-max-length', 'ngAnimate', 'angular-bn-modals', 'angular-service-modals']);
+app.controller('RegisterController', function ($scope, $http,modals) {
 
 
     var fileInputTextDiv = document.getElementById('file_input_text_div');
     var fileInput = document.getElementById('file_input_file');
+
+    $scope.msg = '';
 
     $scope.user = {
         nombre: '',
@@ -35,7 +37,7 @@ app.controller('RegisterController', function ($scope, $http) {
         Nombre: '',
         Clave: ''
     };
-    console.log($scope.userDir.CP);
+    
     
     $scope.estados = [];
     $http({
@@ -47,24 +49,58 @@ app.controller('RegisterController', function ($scope, $http) {
         console.log(response.data);
     }
     );
-});
-app.directive('uiMaxlength', function() {
-    return {
-        require: 'ngModel',
-        link: function(scope, el, attrs, model) {
-            var max_length = parseInt(attrs.uiMaxlength, 10);
 
-            var input_value_parser = function(value) {
-                if(value.length > max_length) {
-                    value = value.substring(0, max_length);
-                    model.$setViewValue(value);
-                    model.$render();
-                }
+    $scope.Register = function () {
+        validate()
+        
+    }
 
-                return value;
-            };
-
-            model.$parsers.push(input_value_parser);
+    function validate() {
+        if ($scope.user.nombre == '' || $scope.user.curp == '' || $scope.user.rfc == '' ||
+            $scope.user.claveDocente == '' || $scope.user.turno == '' || $scope.user.email == '' ||
+            $scope.user.usuario == '' || $scope.user.password == '' || $scope.user.Cpassword == '') {
+            $scope.msg = 'Debe de llenar todos los campos de Datos de usuario';
+            $scope.alertSomething('Debe de llenar todos los campos de Datos de usuario');
+            return;
         }
+        if ($scope.userDir.IdEstado == '' || $scope.userDir.Municipio == '' || $scope.userDir.Delegacion == '' ||
+            $scope.userDir.Colonia == '' || $scope.userDir.Calle == '' || $scope.userDir.NumeroExterior == '' ||
+            $scope.userDir.NumeroInterior == '' || $scope.userDir.CP == '') {
+            $scope.msg = 'Debe de llenar todos los campos de Dirección de usuario';
+            $scope.alertSomething('Debe de llenar todos los campos de Dirección de usuario');
+            return;
+        }
+
+        if ($scope.institucion.IdEstado == '' || $scope.institucion.Direccion == '' || $scope.institucion.CP == '' || 
+            $scope.institucion.Nombre == '' || $scope.institucion.Clave == '') {
+            $scope.msg = 'Debe de llenar todos los campos de Datos de institución';
+            $scope.alertSomething('Debe de llenar todos los campos de Datos de institución');
+            return;
+        }
+            
+    }
+
+
+
+
+    $scope.alertSomething = function (message) {
+        var promise = modals.open("alert", {
+            msg: message
+        });
+
+        promise.then(
+            function handleResolve(response) {
+                console.log("Alert resolved");
+            },
+            function handleReject(error) {
+                console.log("Alert Rejected!");
+            }
+            );
     };
-})
+});
+
+
+app.controller("AlertModalController", function ($scope, modals) {
+    $scope.message = (modals.params().msg);
+    $scope.close = modals.resolve;
+});
