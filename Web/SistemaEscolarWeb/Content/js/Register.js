@@ -1,4 +1,4 @@
-﻿var app = angular.module('RegisterApp', ['ngAria', 'ngMaterial']);
+﻿var app = angular.module('RegisterApp', ['ngAria', 'ngMaterial', 'angular-only-number', 'angular-max-length']);
 app.controller('RegisterController', function ($scope, $http) {
 
 
@@ -35,6 +35,7 @@ app.controller('RegisterController', function ($scope, $http) {
         Nombre: '',
         Clave: ''
     };
+    console.log($scope.userDir.CP);
     
     $scope.estados = [];
     $http({
@@ -47,6 +48,23 @@ app.controller('RegisterController', function ($scope, $http) {
     }
     );
 });
+app.directive('uiMaxlength', function() {
+    return {
+        require: 'ngModel',
+        link: function(scope, el, attrs, model) {
+            var max_length = parseInt(attrs.uiMaxlength, 10);
 
-app.filter('telephone', function () {
-});
+            var input_value_parser = function(value) {
+                if(value.length > max_length) {
+                    value = value.substring(0, max_length);
+                    model.$setViewValue(value);
+                    model.$render();
+                }
+
+                return value;
+            };
+
+            model.$parsers.push(input_value_parser);
+        }
+    };
+})

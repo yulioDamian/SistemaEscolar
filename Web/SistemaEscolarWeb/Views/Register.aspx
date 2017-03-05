@@ -110,13 +110,13 @@
                                         
                                         <div class="col-sx-12 col-sm-6 col-md-4">
                                             <div class="form-group">
-                                                <input type="password" required="required" ng-model="userDir.Municipio"/>
+                                                <input type="text" required="required" ng-model="userDir.Municipio"/>
                                                 <label for="input" class="input-label">Municipio</label><i class="bar"></i>
                                             </div>
                                         </div>
                                         <div class="col-sx-12 col-sm-6 col-md-4">
                                             <div class="form-group">
-                                                <input type="password" required="required" ng-model="userDir.Delegacion"/>
+                                                <input type="text" required="required" ng-model="userDir.Delegacion"/>
                                                 <label for="input" class="input-label">Delegación</label><i class="bar"></i>
                                             </div>
                                         </div>
@@ -125,31 +125,31 @@
                                     <div class="row">
                                         <div class="col-sx-12 col-sm-6 col-md-4">
                                             <div class="form-group">
-                                                <input type="password" required="required" ng-model="userDir.Colonia"/>
+                                                <input type="text" required="required" ng-model="userDir.Colonia"/>
                                                 <label for="input" class="input-label">Colonia</label><i class="bar"></i>
                                             </div>
                                         </div>
                                         <div class="col-sx-12 col-sm-6 col-md-4">
                                             <div class="form-group">
-                                                <input type="password" required="required" ng-model="userDir.Calle"/>
+                                                <input type="text" required="required" ng-model="userDir.Calle"/>
                                                 <label for="input" class="input-label">Calle</label><i class="bar"></i>
                                             </div>
                                         </div>
                                          <div class="col-sx-12 col-sm-6 col-md-4">
                                             <div class="form-group">
-                                                <input type="password" required="required" ng-model="userDir.NumeroExterior"/>
+                                                <input type="text" required="required" ng-model="userDir.NumeroExterior"/>
                                                 <label for="input" class="input-label">Numero Exterior</label><i class="bar"></i>
                                             </div>
                                         </div>
                                         <div class="col-sx-12 col-sm-6 col-md-4">
                                             <div class="form-group">
-                                                <input type="password" required="required" ng-model="userDir.NumeroInterior"/>
+                                                <input type="text" required="required" ng-model="userDir.NumeroInterior"/>
                                                 <label for="input" class="input-label">Numero Interior</label><i class="bar"></i>
                                             </div>
                                         </div>
                                         <div class="col-sx-12 col-sm-6 col-md-4">
                                             <div class="form-group">
-                                                <input type="password" required="required" ng-model="userDir.CP"/>
+                                                <input type="text" required="required" ng-model="userDir.CP" ui-Maxlength="5" numbers-Only />
                                                 <label for="input" class="input-label">Codigo Postal</label><i class="bar"></i>
                                             </div>
                                         </div>
@@ -163,7 +163,7 @@
                                     <div class="row">
                                         <div class="col-sx-12 col-sm-6 col-md-4">
                                            <div class="form-group">
-                                              <select required>
+                                              <select required ng-model="institucion.IdEstado">
                                                  <option value="" >Seleccione</option>
                                                  <option ng-repeat="est in estados" value="{{est.IdEstado}}">{{est.Nombre}}</option>
                                               </select>
@@ -172,13 +172,13 @@
                                         </div>
                                         <div class="col-sx-12 col-sm-6 col-md-4">
                                             <div class="form-group">
-                                                <input type="password" required="required"/>
+                                                <input type="text" required="required" ng-model="institucion.Direccion"/>
                                                 <label for="input" class="input-label">Dirección</label><i class="bar"></i>
                                             </div>
                                         </div>
                                         <div class="col-sx-12 col-sm-6 col-md-4">
                                              <div class="form-group">
-                                                 <input type="password" required="required"/>
+                                                 <input type="text" required="required" ng-model="institucion.CP" ui-Maxlength="5" numbers-Only />
                                                  <label for="input" class="input-label">Codigo Postal</label><i class="bar"></i>
                                              </div>
                                         </div>
@@ -187,13 +187,13 @@
                                     <div class="row">
                                         <div class="col-sx-12 col-sm-6 col-md-4">
                                              <div class="form-group">    
-                                                 <input type="password" required="required"/>
+                                                 <input type="text" required="required" ng-model="institucion.Nombre"/>
                                                  <label for="input" class="input-label">Nombre</label><i class="bar"></i>
                                              </div>
                                         </div>
                                         <div class="col-sx-12 col-sm-6 col-md-4">
                                              <div class="form-group">
-                                                 <input type="password" required="required"/>
+                                                 <input type="text" required="required" ng-model="institucion.Clave"/>
                                                  <label for="input" class="input-label">Clave</label><i class="bar"></i>
                                              </div>
                                         </div>
@@ -219,17 +219,19 @@
 	    </div>
     </div>
 
-</body>
-<script src="../Content/js/angular.min.js"></script>
-<script src="../Content/js/angular-aria.min.js"></script>
-<script src="../Content/js/angular-animate.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angular_material/0.7.1/angular-material.min.js"></script>
-<script src="../Content/js/jquery-3.1.1.js"></script>
-<script src="../Content/js/bootstrap.min.js"></script>
-<script src="../Content/js/fileinput.js"></script>
-<script src="../Content/js/jquery.backstretch.min.js"></script>
-<script src="../Content/js/Register-Style.js"></script>
-<script src="../Content/js/Register.js"></script>
+
+    <script src="../Content/js/angular.min.js"></script>
+    <script src="../Content/js/angular-aria.min.js"></script>
+    <script src="../Content/js/angular-animate.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angular_material/0.7.1/angular-material.min.js"></script>
+    <script src="../Content/js/jquery-3.1.1.js"></script>
+    <script src="../Content/js/bootstrap.min.js"></script>
+    <script src="../Content/js/fileinput.js"></script>
+    <script src="../Content/js/jquery.backstretch.min.js"></script>
+    <script src="../Content/js/Register-Style.js"></script>
+    <script src="../Content/js/angular-only-number.js"></script>
+    <script src="../Content/js/angular-max-length.js"></script>
+    <script src="../Content/js/Register.js"></script>
     <script>
 	$("#file-3").fileinput({
 		showCaption: false,
@@ -237,4 +239,5 @@
 		fileType: "any"
 	});
 	</script>
+    </body>
 </html>
