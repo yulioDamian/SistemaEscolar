@@ -27,7 +27,6 @@
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#DataUser" data-toggle="tab">Datos de Usuario</a></li>
                                 <li><a href="#DataDireccion" data-toggle="tab">Dirección de Usuario</a></li>
-                                <li><a href="#DataInstitucion" data-toggle="tab">Datos de Institución</a></li>
                             </ul>
                     </div>
                     <div class="panel-body">
@@ -53,6 +52,8 @@
                                                  <label for="input" class="input-label">RFC</label><i class="bar"></i>
                                              </div>
                                         </div>
+                                    </div>
+                                    <div class="row">
                                     
                                          <div class="col-sx-12 col-sm-6 col-md-4">
                                              <div class="form-group">
@@ -60,25 +61,31 @@
                                                  <label for="input" class="input-label">Clave Docente</label><i class="bar"></i>
                                              </div>
                                         </div>
-                                         <div class="col-sx-12 col-sm-6 col-md-4">
+
+                                        <div class="col-sx-12 col-sm-6 col-md-4">
+                                            <div class="form-group" style="display:block;">
+                                                <select required="required" ng-model="user.turno">
+                                                    <option value="" >Seleccione</option>
+                                                    <option value="1">Matutino</option>
+                                                    <option value="2">Vespertino</option>
+                                                </select>
+                                                <label for="select" class="input-label">Seleccione un Turno</label><i class="bar"></i>
+                                            </div>
+                                        </div>
+                                         <!--div class="col-sx-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <input type="text" required="required" ng-model="user.turno"/>
                                                 <label for="input" class="input-label">Turno</label><i class="bar"></i>
                                             </div>
-                                        </div>
+                                        </div-->
                                          <div class="col-sx-12 col-sm-6 col-md-4">
                                              <div class="form-group">
                                                   <input type="email" required="required" ng-model="user.email"/>
                                                   <label for="input" class="input-label">Correo Electronico</label><i class="bar"></i>
                                               </div>
                                         </div>
-                                    
-                                        <div class="col-sx-12 col-sm-6 col-md-4">
-                                              <div class="form-group">
-                                                  <input type="text" required="required" ng-model="user.usuario"/>
-                                                  <label for="input" class="input-label">Usuario</label><i class="bar"></i>
-                                              </div>
-                                        </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-sx-12 col-sm-6 col-md-4">
                                               <div class="form-group">
                                                   <input type="password" required="required" ng-model="user.password"/>
@@ -163,66 +170,13 @@
 
                                     <div class="row">
                                         <div class="button-container">
-                                          <button type="submit" class="button" ><span>Guardar</span></button>
-                                        </div>
-                                    </div>
-
-                                </form>
-                            </div>
-                            <div class="tab-pane fade" id="DataInstitucion">
-                                <form class="form-inline">
-                                    <div class="row">
-                                        <div class="col-sx-12 col-sm-6 col-md-4">
-                                           <div class="form-group">
-                                              <select required ng-model="institucion.IdEstado">
-                                                 <option value="" >Seleccione</option>
-                                                 <option ng-repeat="est in estados" value="{{est.IdEstado}}">{{est.Nombre}}</option>
-                                              </select>
-                                              <label for="select" class="input-label">Seleccione un Estado</label><i class="bar"></i>
-                                           </div>
-                                        </div>
-                                        <div class="col-sx-12 col-sm-6 col-md-4">
-                                            <div class="form-group">
-                                                <input type="text" required="required" ng-model="institucion.Direccion"/>
-                                                <label for="input" class="input-label">Dirección</label><i class="bar"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col-sx-12 col-sm-6 col-md-4">
-                                             <div class="form-group">
-                                                 <input type="text" required="required" ng-model="institucion.CP" ui-Maxlength="5" numbers-Only />
-                                                 <label for="input" class="input-label">Codigo Postal</label><i class="bar"></i>
-                                             </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-sx-12 col-sm-6 col-md-4">
-                                             <div class="form-group">    
-                                                 <input type="text" required="required" ng-model="institucion.Nombre"/>
-                                                 <label for="input" class="input-label">Nombre</label><i class="bar"></i>
-                                             </div>
-                                        </div>
-                                        <div class="col-sx-12 col-sm-6 col-md-4">
-                                             <div class="form-group">
-                                                 <input type="text" required="required" ng-model="institucion.Clave"/>
-                                                 <label for="input" class="input-label">Clave</label><i class="bar"></i>
-                                             </div>
-                                        </div>
-                                        <div class="col-sx-12 col-sm-6 col-md-4">
-                                           <div class="form-group">
-                                               <input id="file-3" type="file" multiple=false>
-                                           </div>    
-                                        </div>
-
-                                    </div>
-                                    <div class="row">
-                                        <div class="button-container">
                                           <button type="submit" class="button" ng-click="Register()"><span>Registrar</span></button>
                                         </div>
                                     </div>
-                                    
+
                                 </form>
                             </div>
+                           
                         </div>
                     </div>
                 </div>

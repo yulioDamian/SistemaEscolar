@@ -14,7 +14,6 @@ app.controller('RegisterController', function ($scope, $http,modals) {
         claveDocente: '',
         turno: '',
         email: '',
-        usuario: '',
         password: '',
         Cpassword: ''
     };
@@ -28,14 +27,6 @@ app.controller('RegisterController', function ($scope, $http,modals) {
         NumExterior: '',
         NumInterior: '',
         CP: ''
-    };
-
-    $scope.institucion = {
-        IdEstado: '',
-        Direccion: '',
-        CP: '',
-        Nombre: '',
-        Clave: ''
     };
     
     
@@ -68,13 +59,6 @@ app.controller('RegisterController', function ($scope, $http,modals) {
             $scope.userDir.NumeroInterior == '' || $scope.userDir.CP == '') {
             $scope.msg = 'Debe de llenar todos los campos de Dirección de usuario';
             $scope.alertSomething('Debe de llenar todos los campos de Dirección de usuario');
-            return;
-        }
-
-        if ($scope.institucion.IdEstado == '' || $scope.institucion.Direccion == '' || $scope.institucion.CP == '' || 
-            $scope.institucion.Nombre == '' || $scope.institucion.Clave == '') {
-            $scope.msg = 'Debe de llenar todos los campos de Datos de institución';
-            $scope.alertSomething('Debe de llenar todos los campos de Datos de institución');
             return;
         }
             

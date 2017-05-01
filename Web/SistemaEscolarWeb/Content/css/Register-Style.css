@@ -195,6 +195,8 @@ div.m-modals > .modal {
 	margin-left: -200px ;
 	top: 200px ;
 	width: 400px ;
+    display: inherit;
+    bottom: initial;
 }
 div div p a[ ng-click ] {
 	color: red ;
@@ -262,7 +264,9 @@ a.jump:hover {
     background-color: #3c763d;
 }
 /********************************************************************/
-
+.form-inline .form-group {
+    display:block;
+}
 /************************File input**********************************/
 
 /************************End file input******************************/
